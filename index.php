@@ -34,7 +34,7 @@
                 <!--Abertura das postagem -->
                     <h2>LOREM IPSUM</h2><br>
                     <h4>sapien, quis euismod lacus lorem vel justo.</h4><br>
-                    <img width="660px" src="Imagem/imagem0.png"><br><br>
+                    <img src="img/itec.png"><br><br>
                     <p>
                         Phasellus non malesuada arcu. Phasellus efficitur vestibulum arcu eu aliquet. Duis euismod nunc id feugiat tempor. In hac habitasse platea dictumst.
                     </p><br>
@@ -44,7 +44,7 @@
             </div>
 
             <!-- Login -->
-            <div class="area_login" style="border: 1px solid red;">
+            <div class="area_login">
                 <h2>LOGIN</h2>
                 <form method="POST" action="login.php">
                     <input type="text" name="usuario" placeholder="Usuário" class="inputs" required><br><br>
