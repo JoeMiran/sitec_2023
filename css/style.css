@@ -4,8 +4,9 @@
     --color-red: #e63636;
     --color-dark1: #181818;
     --color-dark2: #1e1e1e;
-    --color-purple1: #9333ff;
-    --color-purple2: indigo;
+    --color-dark3: #646363;
+    --color-blue1: #2E9AFE;
+    --color-blue2: #2D629E;
 }
 
 * {
@@ -18,7 +19,13 @@ body {
     background-color: var(--color-dark1);
     color: var(--color-white);
     height: 100vh;
-    margin: ;
+}
+
+img {
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 /*
@@ -43,20 +50,22 @@ body {
 }
 
 .roxo {
-    color: var(--color-purple1);
+    color: var(--color-blue2);
 }
-
+.ano {
+    color: var(--color-dark3);
+}
 /*
         ---- Formatação da área principal ----
 */
 
 .container {
     display: flex;
-    width: 70%;
-    height: 450px;
+    width: 80%;
+    height: 490px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 200px;
+    margin-top: 170px;
     justify-content: center;
 }
 
@@ -67,8 +76,19 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
-    font-family: Cambria, Arial, sans-serif;
-    background-color: var(--color-dark2);
+    background-color: #000;
+}
+
+.area_principal img {
+    display: block;
+    margin-top: 12px; 
+}
+
+.area_principal p {
+    text-align: justify; /* Para justificar o texto */
+    margin-top: px;
+    /* margin-bottom: auto;
+    border: 1px solid red; */
 }
 
 .area_login {
@@ -102,7 +122,7 @@ a {
 }
 
 a:link, a:visited {
-    color: var(--color-purple1);
+    color: var(--color-blue1);
 }
 
 a:hover {
@@ -116,7 +136,7 @@ a:hover {
 
 #area-cabecalho a:hover {
     color: #000;
-    background: var(--color-purple1) ;
+    background: var(--color-blue1) ;
     text-decoration: none;
 }
 
@@ -173,7 +193,7 @@ a:hover {
 }
 
 .inputs:focus {
-    border-color: var(--color-purple1);
+    border-color: var(--color-blue1);
 }
 
 .box-select {
@@ -190,14 +210,14 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     margin-top: 1rem;
-    background-color: var(--color-purple2);
+    background-color: var(--color-blue2);
     color: var(--color-white);
     cursor: pointer;
     transition: .3s;
 }
 
 button[type="submit"]:hover {
-    background-color: var(--color-purple1);
+    background-color: var(--color-blue1);
 }
 
 @media  screen and (max-width: 576px) {

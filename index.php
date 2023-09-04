@@ -15,7 +15,7 @@
             
             <div id="area-cabecalho">
                 <div id="area-logo">
-                    <h1><span class="roxo">SITEC</span><span class="branco">2023</span></h1>
+                    <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
                 </div>
                 
                 <div id="area-menu">
@@ -30,17 +30,17 @@
 
         <div class="container">
 
+            <!-- Apresentação -->
             <div class="area_principal">
-                <!--Abertura das postagem -->
-                    <h2>LOREM IPSUM</h2><br>
-                    <h4>sapien, quis euismod lacus lorem vel justo.</h4><br>
-                    <img src="img/itec.png"><br><br>
-                    <p>
-                        Phasellus non malesuada arcu. Phasellus efficitur vestibulum arcu eu aliquet. Duis euismod nunc id feugiat tempor. In hac habitasse platea dictumst.
-                    </p><br>
-                    <p>
-                        bi quis tempor ante. Cras vitae diam magna. Donec dictum lobortis facilisis. Nullam et egestas lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    </p>	
+                <h2>Semana do ITEC 2023</h2><br>
+                <h4>Desenvolvimento Web Full Stack.</h4><br>
+                <img src="img/itec.png"><br><br>
+                <p>
+                    Esse minicurso tem por finalidade apresentar os conceitos básicos de desenvolvimento web full stack,
+                    utilizando as tecnologias HTML, CSS, JavaScript, PHP e MySQL. Nosso objetivo é que ao final do minicurso,
+                    você seja capaz de desenvolver um sistema web completo, desde a criação do banco de dados até a interface
+                    de usuário. 
+                </p>   
             </div>
 
             <!-- Login -->
