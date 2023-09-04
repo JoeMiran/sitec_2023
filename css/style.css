@@ -76,7 +76,7 @@ img {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
-    background-color: #000;
+    background-color: var(--color-blue2);
 }
 
 .area_principal img {
@@ -85,10 +85,7 @@ img {
 }
 
 .area_principal p {
-    text-align: justify; /* Para justificar o texto */
-    margin-top: px;
-    /* margin-bottom: auto;
-    border: 1px solid red; */
+    text-align: justify; 
 }
 
 .area_login {
@@ -98,7 +95,6 @@ img {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
-    font-family: Cambria, Arial, sans-serif;
     background-color: var(--color-dark2);
 }
 
