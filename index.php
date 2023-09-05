@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-https://dev.to/dxwebster/como-conectar-ao-github-com-chaves-ssh-1i41
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
