@@ -21,7 +21,7 @@
                 <div id="area-menu">
                     <a href="">Início</a> 
                     <a href="formulario.php">Formulário</a> 
-                    <a href="lista.php">Consulta</a>  
+                    <a href="consulta.php">Consulta</a>  
                 </div>
            
             </div>
@@ -44,19 +44,42 @@
             </div>
 
             <!-- Login -->
-            <div class="area_login">
+            <main class="area_login">
                 <h2>LOGIN</h2><br><br>
-                <form method="POST" action="login.php">
-                    <input type="text" name="usuario" placeholder="Usuário" class="inputs" required><br><br>
+                <form method="POST" action="index.php">
+                    <input type="text"  name="usuario" placeholder="Usuário" class="inputs" required><br><br>
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required><br><br>
+                    <span class="erro_login"></span><br>
                     <div class="botoes">
-                        <button class="botao_entrar" type="submit">Entrar</button>
-                        <button class="botao_cadastrar" type="submit">Cadastrar</button>
+                        <button class="botao_entrar" type="submit" value="entrar" onclick="consultarConta(event)">Entrar</button>
+                        <button class="botao_cadastrar" type="submit" value="cadastrar" onclick="cadastrarConta(event)">Cadastrar</button>
                     </div>
                 </form>
-            </div>
-
+            </main>
         </div>
+
+        <script>
+
+            function cadastrarConta(event) {
+                event.preventDefault();
+                window.location.href = "formulario.php";
+            }
+
+            function consultarConta(event) {
+                
+                const usuario = document.querySelector('input[name="usuario"]').value;
+                const senha = document.querySelector('input[name="senha"]').value;
+
+                if(senha.length < 8 || usuario.length < 5) {
+                    const erroLogin = document.querySelector('.erro_login');
+                    erroLogin.innerHTML = "Usuário ou senha inválidos!";
+                    event.preventDefault();
+                } else {
+                    window.location.href = "consulta.php";
+                }
+            }
+
+        </script>
 
     </body>
 </html>

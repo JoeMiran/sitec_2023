@@ -120,6 +120,17 @@ img {
     border: 2px solid var(--color-blue1);
 }
 
+.erro_login {
+    display: flex;
+    margin-left: 0.8rem;
+    margin-bottom: 0;
+    color: red;
+    font-size: smaller;
+    font-weight: bold;
+    font-family: sans-serif;
+    
+}
+
 .area_principal img {
     display: block;
     margin-top: 12px; 
