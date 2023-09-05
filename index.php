@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<!-- Chave SSH: SHA256:WjeqEMgOUfFKQkeEmOiE5v+FOTgM1bRRHdWChTPZ3cM -->
+https://dev.to/dxwebster/como-conectar-ao-github-com-chaves-ssh-1i41
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -50,7 +50,10 @@
                 <form method="POST" action="login.php">
                     <input type="text" name="usuario" placeholder="Usuário" class="inputs" required><br><br>
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required><br><br>
-                    <button type="submit">Entrar</button>
+                    <div class="butoes" style="border: 1px solid red">
+                        <button style="background-color: greenyellow;" type="submit">Entrar</button>
+                        <button class="cadastrar" type="submit">Cadastrar</button>
+                    </div>
                 </form>
             </div>
 

@@ -79,6 +79,11 @@ img {
     background-color: var(--color-blue2);
 }
 
+.butoes {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .area_principal img {
     display: block;
     margin-top: 12px; 
@@ -211,6 +216,11 @@ button[type="submit"] {
     color: var(--color-white);
     cursor: pointer;
     transition: .3s;
+}
+
+button[type="submit"] .cadastrar {
+    border: 2px solid var(--color-blue2);
+    background-color: red;
 }
 
 button[type="submit"]:hover {
