@@ -33,6 +33,7 @@ img {
 */
 
 .cabecalho {
+    max-width: 100%;
     font-size: 2em;
     font-family: 'Low Gun Screen', sans-serif;
     background: #e6e6e6;
@@ -44,6 +45,7 @@ img {
     padding-top: 35px;
     text-align: center;
 }
+
 
 #area-logo, #area-menu {
     padding: 10px;
@@ -120,17 +122,6 @@ img {
     border: 2px solid var(--color-blue1);
 }
 
-.erro_login {
-    display: flex;
-    margin-left: 0.8rem;
-    margin-bottom: 0;
-    color: red;
-    font-size: smaller;
-    font-weight: bold;
-    font-family: sans-serif;
-    
-}
-
 .area_principal img {
     display: block;
     margin-top: 12px; 
@@ -168,6 +159,7 @@ img {
 
 a {
     text-decoration: none;
+    border-radius: 0.5rem;
 }
 
 a:link, a:visited {
@@ -187,25 +179,25 @@ a:hover {
     color: #000;
     background: var(--color-blue1) ;
     text-decoration: none;
+    transition: all 1s;
 }
 
 /*
         ---- Formatação do formulário ----
 */
 .content {
-    width: 260px; 
-    margin-top: 60px;
+    width: 40rem;
+    margin-top: 4rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 60px;
+    margin-bottom: 4rem;
     background-color: var(--color-dark2);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 1rem;
     overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .text {
@@ -230,7 +222,11 @@ a:hover {
 }
 
 .inputs {
-    padding: 8px 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 15px;
     outline: none;
     border-radius: 5px;
     background-color: var(--color-dark1);
