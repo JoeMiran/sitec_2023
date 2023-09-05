@@ -1,4 +1,4 @@
- @import url('http://fonts.cdnfonts.com/css/straightler');
+ @import url('http://fonts.cdnfonts.com/css/low-gun-screen-expanded');
 :root {
     --color-white:#fff;
     --color-red: #e63636;
@@ -33,13 +33,13 @@ img {
 */
 
 .cabecalho {
-    font-size: 1em;
-    font-family: 'Straightler', sans-serif;
+    font-size: 2em;
+    font-family: 'Low Gun Screen', sans-serif;
     background: #e6e6e6;
 }
 
 #area-cabecalho {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--color-blue2);
     padding: 15px;
     padding-top: 15px;
     text-align: center;
@@ -50,10 +50,10 @@ img {
 }
 
 .roxo {
-    color: var(--color-blue2);
+    color: var(--color-white);
 }
 .ano {
-    color: var(--color-dark3);
+    color: var(--color-white);
 }
 /*
         ---- Formatação da área principal ----
