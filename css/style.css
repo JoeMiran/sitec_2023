@@ -79,9 +79,45 @@ img {
     background-color: var(--color-blue2);
 }
 
-.butoes {
+.botoes {
     display: flex;
     justify-content: space-evenly;
+}
+
+.botoes .botao_entrar {
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: var(--color-blue2);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botoes .botao_entrar:hover {
+    background-color: var(--color-blue1);
+}
+
+.botoes .botao_cadastrar {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: var(--color-dark2);
+    color: var(--color-blue2);
+    border: 2px solid var(--color-blue2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botoes .botao_cadastrar:hover {
+    color: var(--color-blue1);
+    border: 2px solid var(--color-blue1);
 }
 
 .area_principal img {
@@ -205,7 +241,7 @@ a:hover {
     gap: 1rem;
 }
 
-button[type="submit"] {
+/* button[type="submit"] {
     padding: 1rem;
     font-size: 1rem;
     outline: none;
@@ -225,7 +261,7 @@ button[type="submit"] .cadastrar {
 
 button[type="submit"]:hover {
     background-color: var(--color-blue1);
-}
+} */
 
 @media  screen and (max-width: 576px) {
     .box-select{

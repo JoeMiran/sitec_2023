@@ -45,13 +45,13 @@
 
             <!-- Login -->
             <div class="area_login">
-                <h2>LOGIN</h2>
+                <h2>LOGIN</h2><br><br>
                 <form method="POST" action="login.php">
                     <input type="text" name="usuario" placeholder="Usuário" class="inputs" required><br><br>
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required><br><br>
-                    <div class="butoes" style="border: 1px solid red">
-                        <button style="background-color: greenyellow;" type="submit">Entrar</button>
-                        <button class="cadastrar" type="submit">Cadastrar</button>
+                    <div class="botoes">
+                        <button class="botao_entrar" type="submit">Entrar</button>
+                        <button class="botao_cadastrar" type="submit">Cadastrar</button>
                     </div>
                 </form>
             </div>
