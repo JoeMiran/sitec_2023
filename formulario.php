@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,13 +16,13 @@
 
         <div id="area-cabecalho">
             <div id="area-logo">
-                <h1><span class="roxo">SITEC</span><span class="branco">2023</span></h1>
+                <h1><span class="roxo">SITEC </span><span class="branco">2023</span></h1>
             </div>
 
             <div id="area-menu">
                 <a href="index.php">Início</a>
                 <a href="">Formulário</a>
-                <a href="lista.php">Consulta</a>
+                <a href="consulta.php">Consulta</a>
             </div>
 
         </div>
@@ -81,7 +78,7 @@
                 <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
             <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Informações Adicionais..."></textarea><br>
-            <button type="submit">Enviar</button>
+            <button class="botao_enviar" type="submit">Enviar</button>
         </form>
     </div>
 </body>

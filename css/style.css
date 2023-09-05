@@ -86,7 +86,8 @@ img {
     justify-content: space-evenly;
 }
 
-.botoes .botao_entrar {
+.botoes .botao_entrar,
+.botao_enviar {
     padding: 1rem;
     font-size: 1rem;
     outline: none;
@@ -99,7 +100,8 @@ img {
     transition: .3s;
 }
 
-.botoes .botao_entrar:hover {
+.botoes .botao_entrar:hover,
+.botao_enviar:hover {
     background-color: var(--color-blue1);
 }
 
@@ -120,6 +122,14 @@ img {
 .botoes .botao_cadastrar:hover {
     color: var(--color-blue1);
     border: 2px solid var(--color-blue1);
+}
+
+.erro_login {
+    color: var(--color-red);
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .area_principal img {
