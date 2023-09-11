@@ -25,7 +25,7 @@
     </div>
     <div class="content">
         <form id="form">
-            <h2 class="text">Cadastro</h2>
+            <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
             <div>
                 <input type="text" placeholder="Nome..." class="inputs required">
                 <span class="span-required">Praesent egestas Praesent egestas</span>
