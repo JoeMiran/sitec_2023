@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['botao_enviar'])) {
     session_start();
     extract($_POST);
@@ -9,8 +8,12 @@ if (isset($_POST['botao_enviar'])) {
     $password = "";
     $dbname = "sitec_2023";
     $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Falha na conexão: " . $conn->connect_error);
+    }
     
-    $sql = " INSERT INTO sitec_2023
+    $sql_pessoa = "INSERT INTO pessoa
     (
         nome,
         email,
@@ -19,12 +22,47 @@ if (isset($_POST['botao_enviar'])) {
         nascimento,
         UF,
         semestre,
-        usuario,
-        senha,
         descricao
+    ) VALUES
+    (
+        '$nome',
+        '$email',
+        '$telefone',
+        '$genero',
+        '$nascimento',
+        '$UF',
+        '$semestre',
+        '$descricao'
+    )";
+    
+    if ($conn->query($sql_pessoa) === TRUE) {
+        $last_inserted_id = $conn->insert_id; // Obtém o ID da pessoa inserida
 
-    ) VALUES 
-    ("
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        
+        $sql_usuario = "INSERT INTO usuario
+        (
+            idPessoa,
+            login,
+            senha
+        ) VALUES
+        (
+            '$last_inserted_id',
+            '$login',
+            '$senha_hash'
+        )";
+
+        if ($conn->query($sql_usuario) === TRUE) {
+            echo "Cadastro realizado com sucesso!";
+        } else {
+            echo "Erro na inserção na tabela 'usuario': " . $conn->error;
+        }
+    } else {
+        echo "Erro na inserção na tabela 'pessoa': " . $conn->error;
+    }
+
+    $conn->close();
+} else {
+    echo 'Nao entrou no if hein';
 }
-
 ?>
