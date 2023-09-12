@@ -1,3 +1,6 @@
+ <?php
+//include_once 'dadosCadastrados.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -21,7 +24,38 @@
             </div>     
         </div>
 
-        <div id="container">
+        <div class="content">
+
+            <fieldset>
+                <legend>
+                    <strong><h2 class="text">CONSULTAR DADOS CADASTRAIS</h2></strong>
+                </legend>
+                <p>
+                    <strong>Nome:</strong>
+                </p><br>
+                <p>
+                    <strong>E-mail:</strong>
+                </p><br>
+                <p>
+                    <strong>Telefone:</strong>
+                </p><br>
+                <p>
+                    <strong>Nome:</strong>
+                </p><br>
+                <p>
+                    <strong>Sexo:</strong>
+                </p><br>
+                <p>
+                    <strong>Nascimento:</strong>
+                </p><br>
+                <p>
+                    <strong>Semestre:</strong>
+                </p><br>
+                <p>
+                    <strong>Informações Adicionais:</strong>
+                </p><br>
+
+            </fieldset>
 
         </div>
 

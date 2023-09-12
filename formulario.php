@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href="http://fonts.cdnfonts.com/css/straightler" rel="stylesheet">
     <title>Formulário</title>
 </head>
@@ -28,11 +28,9 @@
             <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
             <div>
                 <input type="text" placeholder="Nome..." class="inputs required">
-                <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
             <div>
                 <input type="text" placeholder="E-mail..." class="inputs required">
-                <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
             <div>
                 <input type="tel" id="fone" name="fone" required pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="11 99999-9999" class="inputs required">
@@ -66,11 +64,9 @@
             </div>
             <div>
                 <input type="text" name="login" id="login" placeholder="Login..." class="inputs required">
-                <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
             <div>
                 <input type="password" name="senha" id="senha" placeholder="Senha..." class="inputs required">
-                <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
             <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Informações Adicionais..."></textarea><br>
             <button class="botao_enviar" type="submit">Enviar</button>
