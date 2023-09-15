@@ -1,235 +1,113 @@
- @import url('http://fonts.cdnfonts.com/css/low-gun-screen-expanded');
+/* Importar a fonte 'low-gun-screen-expanded' de um CDN */
+@import url('http://fonts.cdnfonts.com/css/low-gun-screen-expanded');
+
+/* Definir variáveis de cores usando o :root pseudo-elemento */
 :root {
-    --color-white:#fff;
-    --color-red: #e63636;
-    --color-dark1: #181818;
-    --color-dark2: #1e1e1e;
-    --color-dark3: #646363;
-    --color-blue1: #2E9AFE;
-    --color-blue2: #2D629E;
+    --color-white: #fff;        /* Branco */
+    --color-red: #e63636;      /* Vermelho */
+    --color-dark1: #181818;    /* Cinza escuro 1 */
+    --color-dark2: #1e1e1e;    /* Cinza escuro 2 */
+    --color-dark3: #646363;    /* Cinza escuro 3 */
+    --color-blue1: #2E9AFE;    /* Azul claro */
+    --color-blue2: #2D629E;    /* Azul escuro */
 }
 
+/* Definir estilos padrão para todos os elementos HTML */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;                /* Remover margens padrão */
+    text-decoration: none;     /* Remover decoração de texto */
+    color: var(--color-white); /* Definir cor de texto para branco */
 }
 
+/* Estilos para o corpo (body) da página */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--color-dark1);
-    color: var(--color-white);
-    height: 100vh;
+    max-height: 100vh;         /* Altura máxima igual à altura da janela de visualização */
+    background: var(--color-dark1); /* Cor de fundo cinza escuro 1 */
+    font-family: Arial, Helvetica, sans-serif; /* Família de fontes padrão */
 }
 
-img {
-    width: 180px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-}
-
-/*
-        ---- Formatação do cabeçalho ----
-*/
-
-.cabecalho {
-    font-size: 2em;
-    font-family: 'Low Gun Screen', sans-serif;
-    background: #e6e6e6;
-}
-
-#area-cabecalho {
-    background-color: var(--color-blue2);
-    padding: 35px;
-    padding-top: 35px;
-    text-align: center;
-}
-
-#area-logo, #area-menu {
-    padding: 10px;
-}
-
-.roxo {
-    color: var(--color-white);
-}
-.ano {
-    color: var(--color-white);
-}
-/*
-        ---- Formatação da área principal ----
-*/
-
+/* Estilos para a classe 'container' */
 .container {
-    display: flex;
-    width: 80%;
-    height: 490px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 170px;
-    justify-content: center;
+    display: flex;             /* Usar flexbox */
+    flex-direction: row;       /* Direção das caixas flexíveis é horizontal */
+    justify-content: center;   /* Centralizar o conteúdo horizontalmente */
+    margin-top: 175px;         /* Margem superior de 175 pixels */
 }
 
+/* Estilos para a classe 'area_principal' */
 .area_principal {
-    width: 30%;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-    margin-top: 10px;
-    margin-bottom: 15px; 
-    padding: 15px;
-    background-color: var(--color-blue2);
+    width: 20%;                /* Largura de 20% do elemento pai */
+    border-top-left-radius: 12px;     /* Raio de canto superior esquerdo */
+    border-bottom-left-radius: 12px;  /* Raio de canto inferior esquerdo */
+    margin-top: 10px;          /* Margem superior de 10 pixels */
+    margin-bottom: 15px;       /* Margem inferior de 15 pixels */
+    padding: 15px;             /* Espaçamento interno de 15 pixels */
+    background-color: var(--color-blue2); /* Cor de fundo azul escuro */
+    text-align: justify;       /* Justificar o texto */
 }
 
-.butoes {
-    display: flex;
-    justify-content: space-evenly;
-}
-
+/* Estilos para imagens dentro da classe 'area_principal' */
 .area_principal img {
-    display: block;
-    margin-top: 12px; 
+    max-width: 176px;          /* Largura máxima de 176 pixels */
+    display: block;            /* Tornar a imagem um bloco */
+    margin: auto;              /* Centralizar a imagem horizontalmente */
 }
 
-.area_principal p {
-    text-align: justify;
-    padding: 10px;
-}
-
+/* Estilos para a classe 'area_login' */
 .area_login {
-    width: 30%;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    padding: 15px;
-    background-color: var(--color-dark2);
+    display: flex;             /* Usar flexbox */
+    flex-direction: column;    /* Direção das caixas flexíveis é vertical */
+    text-align: center;        /* Centralizar o texto horizontalmente */
+    width: 20%;                /* Largura de 20% do elemento pai */
+    border-top-right-radius: 12px;    /* Raio de canto superior direito */
+    border-bottom-right-radius: 12px; /* Raio de canto inferior direito */
+    margin: 10px 0px 15px 0px; /* Margem superior, direita, inferior e esquerda */
+    padding: 15px;             /* Espaçamento interno de 15 pixels */
+    background-color: var(--color-dark2); /* Cor de fundo cinza escuro 2 */
 }
 
-#area_postagem {
-    width: 700px; 
-    background: var(--color-dark2);
-    
+/* Estilos para a classe 'formulario' dentro de 'area_login' */
+.formulario {
+    display: flex;             /* Usar flexbox */
+    flex-direction: column;    /* Direção das caixas flexíveis é vertical */
+    justify-content: center;   /* Centralizar o conteúdo verticalmente */
+    margin: 90px 48px 0px 48px; /* Margem superior, direita, inferior e esquerda */
+    gap: 8px;                  /* Espaçamento entre elementos de 8 pixels */
 }
 
-.postagem {
-    padding: 10px;
-    margin-bottom: 20px;
+/* Estilos para elementos <input> dentro de 'formulario' */
+.formulario input {
+    outline: none;             /* Remover contorno ao focar */
+    padding: 12px;             /* Espaçamento interno de 12 pixels */
+    background-color: var(--color-dark1); /* Cor de fundo cinza escuro 1 */
+    border: solid 2px var(--color-dark1);  /* Borda sólida de 2 pixels */
+    border-radius: 3px;        /* Raio das bordas de 3 pixels */
 }
 
-/*
-        ---- Formatação de links ----
-*/
-
-a {
-    text-decoration: none;
+/* Estilos para os botões */
+.botoes {
+    display: flex;               /* Usar o modelo de layout flex */
+    justify-content: space-around; /* Distribuir espaço uniformemente ao redor dos elementos filhos */
 }
 
-a:link, a:visited {
-    color: var(--color-blue1);
+/* Estilos para os botões com classes 'botao_entrar' e 'botao_cadastrar' */
+.botao_entrar, .botao_cadastrar {
+    padding: 16px;               /* Espaçamento interno de 16 pixels em todas as direções */
+    font-size: 16px;             /* Tamanho da fonte de 16 pixels */
+    border-radius: 5px;          /* Raio das bordas de 5 pixels para arredondamento */
+    cursor: pointer;             /* Mudar o cursor para um ponteiro ao passar por cima */
 }
 
-a:hover {
-    text-decoration: underline;
+/* Estilos específicos para o botão com a classe 'botao_entrar' */
+.botao_entrar {
+    background-color: var(--color-blue2); /* Cor de fundo azul escuro a partir de variável personalizada */
+    color: var(--color-white);            /* Cor do texto branca a partir de variável personalizada */
+    border: none;                         /* Remover a borda do botão */
 }
 
-#area-cabecalho a:link, #area-cabecalho a:visited {
-    color: #CCC;
-    padding: 8px 12px;
-}
-
-#area-cabecalho a:hover {
-    color: #000;
-    background: var(--color-blue1) ;
-    text-decoration: none;
-}
-
-/*
-        ---- Formatação do formulário ----
-*/
-.content {
-    width: 260px; 
-    margin-top: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 60px;
-    background-color: var(--color-dark2);
-    padding: 2rem;
-    border-radius: 10px;
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.text {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: var(--color-white);
-
-}
-
-.content form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.span-required {
-    font-size: 12px;
-    margin: 3px 0 0 1px;
-    color: var(--color-red);
-    display: none;
-}
-
-.inputs {
-    padding: 8px 5px;
-    outline: none;
-    border-radius: 5px;
-    background-color: var(--color-dark1);
-    border: 2px solid var(--color-dark1);
-    color: var(--color-white);
-    width: 100%;
-    box-sizing: border-box;
-    transition: .3s;
-}
-
-.inputs:focus {
-    border-color: var(--color-blue1);
-}
-
-.box-select {
-    display: flex;
-    justify-content: space-evenly;
-    font-weight: bold;
-    gap: 1rem;
-}
-
-button[type="submit"] {
-    padding: 1rem;
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    margin-top: 1rem;
-    background-color: var(--color-blue2);
-    color: var(--color-white);
-    cursor: pointer;
-    transition: .3s;
-}
-
-button[type="submit"] .cadastrar {
-    border: 2px solid var(--color-blue2);
-    background-color: red;
-}
-
-button[type="submit"]:hover {
-    background-color: var(--color-blue1);
-}
-
-@media  screen and (max-width: 576px) {
-    .box-select{
-        flex-direction: column;
-        gap: 5px;
-    }
+/* Estilos específicos para o botão com a classe 'botao_cadastrar' */
+.botao_cadastrar {
+    background-color: var(--color-dark2); /* Cor de fundo cinza escuro 2 a partir de variável personalizada */
+    color: var(--color-blue2);            /* Cor do texto azul escuro a partir de variável personalizada */
+    border: 0.183px solid var(--color-blue2); /* Borda sólida com espessura de 0.183 pixels em cor personalizada */
 }
