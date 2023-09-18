@@ -7,6 +7,8 @@ if(isset($_POST['botao_entrar'])) { //Se o botão entrar for clicado
 session_start(); //Inicia uma sessão para armazenar os dados do usuário logado
 extract($_POST); //Extrai os dados do formulário para armazenar em variáveis com o mesmo nome dos campos
 
+$conn = new mysqli($servername, $username, $password, $dbname); //inicializa a conexão com o banco de dados 
+
 $sql_verificacarCrendenciais = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'";//Verificando se as credenciais login e senha 
 $result = $conn->query($sql_verificacarCrendenciais); //Armazenando resultado da query
 

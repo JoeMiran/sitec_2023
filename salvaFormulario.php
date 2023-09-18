@@ -1,4 +1,7 @@
 <?php
+
+include_once "dadosCadastrados.php";
+
 if (isset($_POST['botao_enviar'])) {
     session_start();
     extract($_POST);
