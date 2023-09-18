@@ -53,7 +53,7 @@ if (isset($_POST['botao_enviar'])) {
         )";
 
         if ($conn->query($sql_usuario) === TRUE) {
-            echo "Cadastro realizado com sucesso!";
+            header("Location: consulta.php");
         } else {
             echo "Erro na inserção na tabela 'usuario': " . $conn->error;
         }

@@ -37,11 +37,11 @@ include_once 'salvaFormulario.php';
             <h2 class="text">Cadastro</h2>
             <div>
                 <input type="text" placeholder="Nome..." class="inputs required" name="nome">
-                <!-- <span class="span-required">Praesent egestas Praesent egestas</span> -->
+
             </div>
             <div>
                 <input type="text" placeholder="E-mail..." class="inputs required" name="email">
-                <!-- <span class="span-required">Praesent egestas Praesent egestas</span> -->
+
             </div>
             <div>
                 <input type="tel" id="fone" name="telefone" required pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="11 99999-9999" class="inputs required">
@@ -75,11 +75,11 @@ include_once 'salvaFormulario.php';
             </div>
             <div>
                 <input type="text" name="login" id="login" placeholder="Login..." class="inputs required">
-                <!-- <span class="span-required">Praesent egestas Praesent egestas</span> -->
+
             </div>
             <div>
                 <input type="password" name="senha" id="senha" placeholder="Senha..." class="inputs required">
-                <!-- <span class="span-required">Praesent egestas Praesent egestas</span> -->
+
             </div>
             <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Informações Adicionais..."></textarea><br>
             <input class="botao_enviar" name="botao_enviar" type="submit"></input>
