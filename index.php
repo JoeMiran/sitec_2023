@@ -15,13 +15,6 @@
         <div id="area-logo">
             <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
         </div>
-
-        <div id="area-menu">
-            <a href="index.php">Início</a>
-            <a href="formulario.php">Formulário</a>
-            <a href="consulta.php">Consulta</a>
-        </div>
-
     </div>
 
     <div class="container">

@@ -35,10 +35,10 @@
                  </strong>
              </legend>
              <p>
-                 <strong>Nome:</strong>
+                 <strong>Nome: <?php echo $teste; ?></strong>
              </p><br>
              <p>
-                 <strong>E-mail:</strong>
+                 <strong>E-mail: <?php $row_pessoa['email'] ?></strong>
              </p><br>
              <p>
                  <strong>Telefone:</strong>
