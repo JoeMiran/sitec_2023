@@ -62,7 +62,5 @@ if (isset($_POST['botao_enviar'])) {
     }
 
     $conn->close();
-} else {
-    echo 'Nao entrou no if hein';
-}
+} 
 ?>

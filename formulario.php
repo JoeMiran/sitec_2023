@@ -82,7 +82,7 @@ include_once 'salvaFormulario.php';
                 <!-- <span class="span-required">Praesent egestas Praesent egestas</span> -->
             </div>
             <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Informações Adicionais..."></textarea><br>
-            <input class="botao_enviar" name="botao_enviar" type="submit">Enviar</input>
+            <input class="botao_enviar" name="botao_enviar" type="submit"></input>
         </form>
     </div>
 </body>
