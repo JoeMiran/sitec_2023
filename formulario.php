@@ -15,23 +15,18 @@ include_once 'salvaFormulario.php';
 </head>
 
 <body>
+    <div class="area-cabecalho">
+         <div id="area-logo">
+             <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
+         </div>
 
-    <div class="cabecalho">
+         <div id="area-menu">
+             <a href="index.php">Início</a>
+             <a href="">Formulário</a>
+             <a href="consulta.php">Consulta</a>
+         </div>
+     </div>
 
-        <div id="area-cabecalho">
-            <div id="area-logo">
-                <h1><span class="roxo">SITEC </span><span class="branco">2023</span></h1>
-            </div>
-
-            <div id="area-menu">
-                <a href="index.php">Início</a>
-                <a href="">Formulário</a>
-                <a href="consulta.php">Consulta</a>
-            </div>
-
-        </div>
-
-    </div>
     <div class="content">
         <form id="form" action="salvaFormulario.php" method="POST">
             <h2 class="text">Cadastro</h2>
@@ -85,6 +80,21 @@ include_once 'salvaFormulario.php';
             <input class="botao_enviar" name="botao_enviar" type="submit"></input>
         </form>
     </div>
+
+    <script>
+         // Quando um link ou botão é clicado
+         document.querySelectorAll('a, button').forEach(link => {
+             link.addEventListener('click', (event) => {
+                 event.preventDefault(); // Impede o comportamento padrão de seguir o link imediatamente
+                 const destination = link.getAttribute('href'); // Obtém o destino do link
+                 document.querySelector('body').classList.add('exiting'); // Adiciona a classe .exiting
+                 setTimeout(() => {
+                     window.location.href = destination; // Redireciona para o destino após a transição
+                 }, 500); // Tempo da transição em milissegundos (0,5 segundos)
+             });
+         });
+     </script>
+
 </body>
 
 </html>
