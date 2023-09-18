@@ -25,7 +25,7 @@
     </div>
     <div class="content">
         <form id="form">
-            <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
+            <h2 class="text">FORMULÝRIO DE CADASTRO</h2>
             <div>
                 <input type="text" placeholder="Nome..." class="inputs required">
             </div>
@@ -47,9 +47,9 @@
                 <input type='date' id='dtnasc' name='dtnasc' class="inputs required">
             </div>
             <div class="inputs required">
-                <label class="inputs required" for="estado">Estado:</label>
-                <select id="estado" name="estado" class="inputs required">
-                    <option value="SP">PA</option>
+                <label class="inputs requ"estado" class="inputs required">
+                    <option value="SP">PAired" for="estado">Estado:</label>
+                <select id="estado" name=</option>
                     <option value="RJ">AM</option>
                     <option value="PB">AL</option>
                     <option value="PB">AC</option>

@@ -10,7 +10,7 @@ if (isset($_POST['botao_enviar'])) {
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
-        die("Falha na conexao: " . $conn->connect_error);
+        die("Falha na conexão: " . $conn->connect_error);
     }
     
     $sql_pessoa = "INSERT INTO pessoa
@@ -36,7 +36,7 @@ if (isset($_POST['botao_enviar'])) {
     )";
     
     if ($conn->query($sql_pessoa) === TRUE) {
-        $last_inserted_id = $conn->insert_id; // Obtï¿½m o ID da pessoa inserida
+        $last_inserted_id = $conn->insert_id; // Obtém o ID da pessoa inserida
 
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
         
@@ -55,10 +55,10 @@ if (isset($_POST['botao_enviar'])) {
         if ($conn->query($sql_usuario) === TRUE) {
             echo "Cadastro realizado com sucesso!";
         } else {
-            echo "Erro na insercao na tabela 'usuario': " . $conn->error;
+            echo "Erro na inserção na tabela 'usuario': " . $conn->error;
         }
     } else {
-        echo "Erro na insercao na tabela 'pessoa': " . $conn->error;
+        echo "Erro na inserção na tabela 'pessoa': " . $conn->error;
     }
 
     $conn->close();
