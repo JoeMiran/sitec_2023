@@ -81,19 +81,7 @@ include_once 'salvaFormulario.php';
         </form>
     </div>
 
-    <script>
-         // Quando um link ou botão é clicado
-         document.querySelectorAll('a, button').forEach(link => {
-             link.addEventListener('click', (event) => {
-                 event.preventDefault(); // Impede o comportamento padrão de seguir o link imediatamente
-                 const destination = link.getAttribute('href'); // Obtém o destino do link
-                 document.querySelector('body').classList.add('exiting'); // Adiciona a classe .exiting
-                 setTimeout(() => {
-                     window.location.href = destination; // Redireciona para o destino após a transição
-                 }, 500); // Tempo da transição em milissegundos (0,5 segundos)
-             });
-         });
-     </script>
+    <script src = "transicao.js"></script>
 
 </body>
 

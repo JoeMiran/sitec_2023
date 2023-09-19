@@ -47,43 +47,7 @@
         </main>
     </div>
 
-    <script>
-        function cadastrarConta(event) {
-            event.preventDefault();
-        }
-
-        function consultarConta(event) {
-
-            const usuario = document.querySelector('input[name="usuario"]').value;
-            const senha = document.querySelector('input[name="senha"]').value;
-
-            if (senha.length < 8 || usuario.length < 3) {
-                const erroLogin = document.querySelector('.erro_login');
-                erroLogin.innerHTML = "Usuário ou senha inválidos!";
-            } else {
-                event.preventDefault();
-                document.querySelector('body').classList.add('exiting'); // Adiciona a classe .exiting
-                setTimeout(() => {
-                    // Redirecione para o destino desejado quando o botão for clicado
-                    window.location.href = "consulta.php";
-                }, 500); // Tempo da transição em milissegundos (0,5 segundos)
-
-            }
-        }
-
-
-        // Quando um link é clicado
-        document.querySelectorAll('a, button').forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault(); // Impede o comportamento padrão de seguir o link imediatamente
-                const destination = link.getAttribute('href'); // Obtém o destino do link
-                document.querySelector('body').classList.add('exiting'); // Adiciona a classe .exiting
-                setTimeout(() => {
-                    window.location.href = destination; // Redireciona para o destino após a transição
-                }, 500); // Tempo da transição em milissegundos (0,5 segundos)
-            });
-        });
-    </script>
+    <script src = "verificaLogin.js"></script>
 
 </body>
 
