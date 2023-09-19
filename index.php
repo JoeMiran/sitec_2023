@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +40,7 @@
                 <span class="erro_login"></span>
             </form>
             <div class="botoes">
-                <button class="botao_entrar" type="submit" value="entrar" onclick="consultarConta(event)">Entrar</button>
+                <input class="botao_entrar" name="botao_entrar" type="submit" value="Entrar" onclick="consultarConta(event)">
                 <button href="formulario.php" class="botao_cadastrar" type="submit" value="cadastrar" onclick="cadastrarConta(event)">Cadastrar</button>
             </div>
         </main>

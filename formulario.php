@@ -44,7 +44,7 @@ include_once 'salvaFormulario.php';
             <div class="inputs required">
                 <p>Gênero:</p>
                 <input type="radio" id="genero-m" name="genero" value="Masculino">
-                <label for="genero-m">Masculino</label><br>
+                <label for="genero-m">Masculino</label>
                 <input type="radio" id="genero-f" name="genero" value="Feminino">
                 <label for="genero-f">Feminio</label>
             </div>

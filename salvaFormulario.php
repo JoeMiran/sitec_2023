@@ -1,8 +1,7 @@
 <?php
 
-include_once "dadosCadastrados.php";
-
 if (isset($_POST['botao_enviar'])) {
+
     session_start();
     extract($_POST);
 
@@ -39,7 +38,8 @@ if (isset($_POST['botao_enviar'])) {
     )";
     
     if ($conn->query($sql_pessoa) === TRUE) {
-        $last_inserted_id = $conn->insert_id; // Obtém o ID da pessoa inserida
+
+        $last_inserted_id = $conn->insert_id; 
 
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
         
@@ -56,7 +56,7 @@ if (isset($_POST['botao_enviar'])) {
         )";
 
         if ($conn->query($sql_usuario) === TRUE) {
-            header("Location: consulta.php");
+            header("Location: confirmaEnvio.php");
         } else {
             echo "Erro na inserção na tabela 'usuario': " . $conn->error;
         }
