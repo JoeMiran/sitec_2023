@@ -15,6 +15,19 @@ Class Backend {
             return $conexao;
     }
 
+
+    public static function redirecionar($pagina) {
+        echo "<script>location.href='".$pagina."';</script>";
+        exit();
+    }
+
+    public static function atraso($segundos) {
+        ob_end_flush();
+        flush();
+        sleep($segundos);
+    }
+
+
     public static function sessionStart() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();

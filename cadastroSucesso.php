@@ -1,3 +1,6 @@
+<?php 
+    include_once 'backend.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +20,7 @@
          </div>
 
          <div id="area-menu">
-             <a href="index.php">Início</a>
+             <a href="index.php">Inï¿½cio</a>
              <a href="formulario.php">Refazer</a>
          </div>
      </div>
@@ -30,9 +33,6 @@
 </html>
 
 <?php 
-ob_end_flush();
-flush();
-usleep(2000000);
-echo "<script>location.href='inicio.php';</script>";
-exit();
+    Backend::atraso(2);
+    Backend::redirecionar('inicio.php');
 ?>
