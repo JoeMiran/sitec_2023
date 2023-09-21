@@ -24,9 +24,15 @@
 
      <div class="sucesso">
         <h2>CADASTRO REALIZADO COM SUCESSO!</h2> 
-     </div>
-
-     <script src = "transicao.js"></script>   
+     </div>  
  </body>
 
 </html>
+
+<?php 
+ob_end_flush();
+flush();
+usleep(2000000);
+echo "<script>location.href='inicio.php';</script>";
+exit();
+?>
