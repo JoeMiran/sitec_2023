@@ -28,6 +28,14 @@ Class Backend {
     }
 
 
+    function executarSolicitacao($sql, $conexao) {
+        $resultadoExecucaoSql = $conexao->query($sql);
+        if ($resultadoExecucaoSql == true) {
+            return 
+        }
+    }
+
+
     public static function sessionStart() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
