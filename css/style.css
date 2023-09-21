@@ -225,7 +225,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 640px;
+    width: 520px;
     margin-top: 64px;
     margin-left: auto;
     margin-right: auto;
@@ -233,6 +233,11 @@ body {
     background-color: var(--color-dark2);
     padding: 32px;
     border-radius: 16px;
+}
+
+.content h2 {
+    font-weight: bold;
+    padding: 15px;
 }
 
 .sucesso {
@@ -262,6 +267,11 @@ body {
     text-align: center;
     color: var(--color-white);
 
+}
+
+fieldset {
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .content form {

@@ -37,29 +37,37 @@
                 <h2 class="text">CONSULTAR DADOS CADASTRAIS</h2>
             </legend>
             <p>
-                Nome: <?php echo($dados['nome'])?>
-            </p>
+                <strong>Nome:</strong>
+                <?php echo($dados['nome'])?>
+            </p><br>
             <p>
-                E-mail: <?php echo($dados['email'])?>
-            </p>
+                <strong>Email:</strong>
+                <?php echo($dados['email'])?>
+            </p><br>
             <p>
-                Telefone: <?php echo($dados['fone'])?>
-            </p>
+                <strong>Telefone:</strong>
+                <?php echo($dados['fone'])?>
+            </p><br>
             <p>
-                Sexo: <?php echo($dados['sexo'])?>
-            </p>
+                <strong>Sexo: </strong>
+                <?php echo($dados['sexo'])?>
+            </p><br>
             <p>
-                Nascimento: <?php echo($dados['nascimento'])?>
-            </p>
+                <strong>Nascimento: </strong>
+                <?php echo($dados['nascimento'])?>
+            </p><br>
             <p>
-                Estado: <?php echo($dados['estado'])?>
-            </p>
+                <strong>Estado: </strong>
+                <?php echo($dados['estado'])?>
+            </p><br>
             <p>
-                Semestre: <?php echo($dados['semestre'])?>
-            </p>
+                <strong>Semestre:</strong>
+                <?php echo($dados['semestre'])?>
+            </p><br>
             <p>
-                Informações Adicionais: <?php echo($dados['descricao'])?>
-            </p>
+                <strong>Informações Adicionais: </strong>
+                <?php echo($dados['descricao'])?>
+            </p><br>
          </fieldset>
 
      </div>
