@@ -34,7 +34,7 @@
             <!-- Apresentação -->
             <div class="area_principal">
                 <h2>Semana do ITEC 2023</h2>
-                <h4>Olá Usuário!</h4>
+                <h4>Desenvolvimento Web Full Stack.</h4>
                 <img src="img/itec.png">
                 <p>
                     Esse minicurso tem por finalidade apresentar os conceitos básicos de desenvolvimento web full stack,

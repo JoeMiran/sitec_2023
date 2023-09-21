@@ -60,6 +60,10 @@ Class Backend {
                     $_SESSION['idUsuario'] = $idUsuario;
 
                     echo "Seja bem vindo!";
+                    ob_end_flush();
+                    flush();
+                    usleep(2000000);
+
                     echo "<script>location.href='consulta.php';</script>";
                     exit();
                 }
@@ -134,7 +138,7 @@ Class Backend {
                 flush();
                 usleep(2000000);
 
-                echo "<script>location.href='consulta.php';</script>";
+                echo "<script>location.href='index.php';</script>";
                 exit();
             } else
                 echo "Erro na inserção dos dados': " . $conexao->error;
