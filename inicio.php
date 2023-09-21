@@ -1,7 +1,7 @@
 <?php
     include_once 'backend.php';
-    Backend::restringirAcessoUsuario();
-    Backend::autenticar();
+    Backend::restringirAcessoVisitante();
+    $dados = Backend::buscar();
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,7 @@
                     <a href="index.php">Início</a> 
                     <a href="formulario.php">Formulário</a> 
                     <a href="consulta.php">Consulta</a>  
+                    <a href="sair.php">Sair</a>  
                 </div>
            
             </div>
@@ -43,36 +44,14 @@
                 </p>   
             </div>
 
-            <!-- Login -->
-            <main class="area_login">
-                <h2>LOGIN</h2>
-                <form class="formulario" method="post" action="index.php">
-                    <input type="text" name="login" placeholder="Login" class="inputs" required>
-                    <input type="password" name="senha" placeholder="Senha" class="inputs" required>
-                    <span class="erro_login"></span>
-                    <div class="botoes">
-                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit">Entrar</button>
-                        <a class="botao_cadastrar" href="formulario.php">Cadastrar</a>
-                    </div>
-                </form>
+            <!-- Boas vindas ao usuário -->
+            <main class="area_usuario">
+                <h2>Olá!</h2>
+                <p>
+                    Seja bem-vindx <?php echo $dados['nome'];?>!
+                </p>
             </main>
         </div>
-
-        <script>
-
-            function validarInput(event) {
-                
-                const usuario = document.querySelector('input[name="usuario"]').value;
-                const senha = document.querySelector('input[name="senha"]').value;
-
-                if(senha.length < 8 || usuario.length < 5) {
-                    const erroLogin = document.querySelector('.erro_login');
-                    erroLogin.innerHTML = "Usuário ou senha inválidos!";
-                    event.preventDefault();
-                }
-            }
-
-        </script>
 
     </body>
 </html>

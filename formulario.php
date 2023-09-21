@@ -1,10 +1,12 @@
 <?php 
-
-include_once 'salvaFormulario.php';
-
+    include_once 'backend.php';
+    Backend::restringirAcessoUsuario();
+    Backend::salvar();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,45 +18,50 @@ include_once 'salvaFormulario.php';
 
 <body>
     <div class="area-cabecalho">
-         <div id="area-logo">
-             <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
-         </div>
-
-         <div id="area-menu">
-             <a href="index.php">Início</a>
-             <a href="">Formulário</a>
-             <a href="consulta.php">Consulta</a>
-         </div>
-     </div>
+        <div id="area-logo">
+            <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
+        </div>      
+        <div id="area-menu">
+            <a href="index.php">Início</a> 
+            <a href="formulario.php">Formulário</a> 
+            <a href="consulta.php">Consulta</a>  
+        </div>       
+    </div>
 
     <div class="content">
-        <form id="form" action="salvaFormulario.php" method="POST">
-            <h2 class="text">Cadastro</h2>
-            <div>
-                <input type="text" placeholder="Nome..." class="inputs required" name="nome">
+        <form method="post" action="formulario.php" id="form">
+            <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
 
-            </div>
             <div>
-                <input type="text" placeholder="E-mail..." class="inputs required" name="email">
+                <input type="text" name="nome" placeholder="Nome..." class="inputs required">
+                <span class="span-required">Praesent egestas Praesent egestas</span>
+            </div>
+            
+            <div>
+                <input type="text" name="email" placeholder="E-mail..." class="inputs required">
+                <span class="span-required">Praesent egestas Praesent egestas</span>
+            </div>
 
-            </div>
             <div>
-                <input type="tel" id="fone" name="telefone" required pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="11 99999-9999" class="inputs required">
+                <input type="tel" id="fone" name="fone" required pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="11 99999-9999" class="inputs required">
             </div>
+
             <div class="inputs required">
-                <p>Gênero:</p>
-                <input type="radio" id="genero-m" name="genero" value="Masculino">
-                <label for="genero-m">Masculino</label>
-                <input type="radio" id="genero-f" name="genero" value="Feminino">
-                <label for="genero-f">Feminio</label>
+                <p>Sexo:</p>
+                <input type="radio" id="sexo-m" name="sexo" value="Masculino">
+                <label for="sexo-m">Masculino</label>
+                <input type="radio" id="sexo-f" name="sexo" value="Feminino">
+                <label for="sexo-f">Feminio</label>
             </div>
+
             <div class="inputs required">
                 <label class="inputs required" for="nascimento">Nascimento:</label>
-                <input type='date' id='nascimento' name='nascimento' class="inputs required">
+                <input type='date' id='dtnasc' name='nascimento' class="inputs required">
             </div>
+
             <div class="inputs required">
-                <label class="inputs required" for="UF">Estado:</label>
-                <select id="UF" name="UF" class="inputs required">
+                <label class="inputs required" for="estado">Estado:</label>
+                <select id="estado" name="estado" class="inputs required">
                     <option value="SP">PA</option>
                     <option value="RJ">AM</option>
                     <option value="PB">AL</option>
@@ -65,24 +72,26 @@ include_once 'salvaFormulario.php';
                     <option value="PB">MA</option>
                 </select>
             </div>
+
             <div>
-                <input type="number" name="semestre" pattern="[0-10]{2}" placeholder="Semestre..." class="inputs required">
+                <input type="number" nome="semestre" required pattern="[0-10]{2}" placeholder="Semestre..." class="inputs required">
             </div>
+
             <div>
                 <input type="text" name="login" id="login" placeholder="Login..." class="inputs required">
-
+                <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
+
             <div>
                 <input type="password" name="senha" id="senha" placeholder="Senha..." class="inputs required">
-
+                <span class="span-required">Praesent egestas Praesent egestas</span>
             </div>
-            <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Informações Adicionais..."></textarea><br>
-            <input class="botao_enviar" name="botao_enviar" type="submit"></input>
+
+            <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" maxlength="100" ="Informações Adicionais..."></textarea><br>
+
+            <button name="botao_enviar" value="1" class="botao_enviar" type="submit">Enviar</button>
         </form>
     </div>
-
-    <script src = "transicao.js"></script>
-
 </body>
 
 </html>
