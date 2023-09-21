@@ -1,6 +1,12 @@
 <?php
 
 Class Backend {
+
+
+
+
+
+
     public static function conectar() {
         // Configuração e conexão ao servidor e banco de dados.
 
@@ -15,57 +21,24 @@ Class Backend {
             return $conexao;
     }
 
-
     public static function sessionStart() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
 
-    public static function restringirAcessoUsuario() {
-        self::sessionStart();
-        if (isset($_SESSION['idUsuario'])) {
-            echo "<script>location.href='inicio.php';</script>";
-            exit();
-        }
-    }
 
-    public static function restringirAcessoVisitante() {
-        self::sessionStart();
-        if (! isset($_SESSION['idUsuario'])) {
-            echo "<script>location.href='index.php';</script>";
-            exit();
-        }
-    }
 
-    public static function autenticar() {
-        if (isset($_POST['botao_entrar'])) {
-            $conexao = self::conectar();
-            extract($_POST);
 
-            $sql_busca = "SELECT * FROM usuario
-                WHERE
-                login = '$login'
-            ";
-            
-            $resultadoSolicitacaoSqlBusca = $conexao->query($sql_busca);
-            if ($resultadoSolicitacaoSqlBusca == true) {
-                $vetorResultadoBusca = $resultadoSolicitacaoSqlBusca->fetch_array();
-                $senha_hash = $vetorResultadoBusca['senha'];
-                $senhaCorreta = password_verify($senha, $senha_hash);
-                if ($senhaCorreta == true) {
 
-                    $idUsuario = $vetorResultadoBusca['idUsuario'];
-                    self::sessionStart();
-                    $_SESSION['idUsuario'] = $idUsuario;
 
-                    echo "Seja bem vindo!";
-                    echo "<script>location.href='consulta.php';</script>";
-                    exit();
-                }
-            }
-        }
-    }
+
+
+
+
+
+
+
 
     public static function salvar() {
         // Persistência dos dados do formulário no banco de dados.
@@ -128,13 +101,13 @@ Class Backend {
         
             // Exibição do resultado das solicitações e redirecionamento para consulta.
             
-            if (($solicitacaoSqlUsuarioExecutadaComSucesso && $solicitacaoSqlPessoaExecutadaComSucesso) == true) {
-                echo "Cadastro realizado com sucesso! Você será redirecionado para a página de login.";
+            if ($solicitacaoSqlUsuarioExecutadaComSucesso && $solicitacaoSqlPessoaExecutadaComSucesso) {
+                echo "<script>location.href='formulario.php';</script>";
                 ob_end_flush();
                 flush();
                 usleep(2000000);
 
-                echo "<script>location.href='consulta.php';</script>";
+                echo "<script>location.href='index.php';</script>";
                 exit();
             } else
                 echo "Erro na inserção dos dados': " . $conexao->error;
@@ -145,6 +118,77 @@ Class Backend {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    public static function restringirAcessoUsuario() {
+        self::sessionStart();
+        if (isset($_SESSION['idUsuario'])) {
+            echo "<script>location.href='inicio.php';</script>";
+            exit();
+        }
+    }
+
+    public static function restringirAcessoVisitante() {
+        self::sessionStart();
+        if (! isset($_SESSION['idUsuario'])) {
+            echo "<script>location.href='index.php';</script>";
+            exit();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static function autenticar() {
+        if (isset($_POST['botao_entrar'])) {
+            $conexao = self::conectar();
+            extract($_POST);
+
+            $sql_busca = "SELECT * FROM usuario
+                WHERE
+                login = '$login'
+            ";
+            
+            $resultadoSolicitacaoSqlBusca = $conexao->query($sql_busca);
+            if ($resultadoSolicitacaoSqlBusca == true) {
+                $vetorResultadoBusca = $resultadoSolicitacaoSqlBusca->fetch_array();
+                $senha_hash = $vetorResultadoBusca['senha'];
+                $senhaCorreta = password_verify($senha, $senha_hash);
+                if ($senhaCorreta == true) {
+
+                    $idUsuario = $vetorResultadoBusca['idUsuario'];
+                    self::sessionStart();
+                    $_SESSION['idUsuario'] = $idUsuario;
+
+                    echo "Seja bem vindo!";
+                    echo "<script>location.href='consulta.php';</script>";
+                    exit();
+                }
+            }
+        }
+    }
+
+    
     public static function buscar() {
         $conexao = self::conectar();
         self::sessionStart();
