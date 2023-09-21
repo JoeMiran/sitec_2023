@@ -51,7 +51,7 @@
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required>
                     <span class="erro_login"></span>
                     <div class="botoes">
-                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit">Entrar</button>
+                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit" onclick="consultarConta(event)">Entrar</button>
                         <a class="botao_cadastrar" href="formulario.php">Cadastrar</a>
                     </div>
                 </form>
@@ -62,10 +62,10 @@
 
             function consultarConta(event) {
 
-            const usuario = document.querySelector('input[name="usuario"]').value;
+            const usuario = document.querySelector('input[name="login"]').value;
             const senha = document.querySelector('input[name="senha"]').value;
-
-                event.preventDefault();
+            event.preventDefault();
+            
             if (senha.length < 8 || usuario.length < 3) {
 
                 const erroLogin = document.querySelector('.erro_login');
