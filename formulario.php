@@ -74,7 +74,7 @@
             </div>
 
             <div>
-                <input type="number" nome="semestre" required pattern="[0-10]{2}" placeholder="Semestre..." class="inputs required">
+                <input type="number" name="semestre" required pattern="[0-10]{2}" placeholder="Semestre..." class="inputs required">
             </div>
 
             <div>

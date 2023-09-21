@@ -130,10 +130,11 @@ Class Backend {
             
             if (($solicitacaoSqlUsuarioExecutadaComSucesso && $solicitacaoSqlPessoaExecutadaComSucesso) == true) {
                 echo "Cadastro realizado com sucesso! Você será redirecionado para a página de login.";
-                echo "<script>location.href='consulta.php';</script>";
                 ob_end_flush();
                 flush();
-                usleep(1500000);
+                usleep(2000000);
+
+                echo "<script>location.href='consulta.php';</script>";
                 exit();
             } else
                 echo "Erro na inserção dos dados': " . $conexao->error;

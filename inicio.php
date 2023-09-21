@@ -34,7 +34,7 @@
             <!-- Apresentação -->
             <div class="area_principal">
                 <h2>Semana do ITEC 2023</h2>
-                <h4>Desenvolvimento Web Full Stack.</h4>
+                <h4>Olá Usuário!</h4>
                 <img src="img/itec.png">
                 <p>
                     Esse minicurso tem por finalidade apresentar os conceitos básicos de desenvolvimento web full stack,
@@ -46,10 +46,10 @@
 
             <!-- Boas vindas ao usuário -->
             <main class="area_usuario">
-                <h2>Olá!</h2>
-                <p>
-                    Seja bem-vindx <?php echo $dados['nome'];?>!
-                </p>
+                <h1>Olá <span id="nome_usuario"><?php echo $dados['nome'];?></span></h1>
+                <h2>
+                    Seja bem-vindx !
+                </h2>
             </main>
         </div>
 
