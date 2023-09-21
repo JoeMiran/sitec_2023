@@ -102,12 +102,11 @@ Class Backend {
             // Exibição do resultado das solicitações e redirecionamento para consulta.
             
             if ($solicitacaoSqlUsuarioExecutadaComSucesso && $solicitacaoSqlPessoaExecutadaComSucesso) {
-                echo "<script>location.href='formulario.php';</script>";
-                ob_end_flush();
-                flush();
-                usleep(2000000);
-
-                echo "<script>location.href='index.php';</script>";
+                // echo "<script>location.href='cadastro.php';</script>";
+                // ob_end_flush();
+                // flush();
+                // usleep(2000000);
+                echo "<script>location.href='cadastroSucesso.php';</script>";
                 exit();
             } else
                 echo "Erro na inserção dos dados': " . $conexao->error;
