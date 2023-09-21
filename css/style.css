@@ -173,6 +173,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
     width: 20%;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -232,6 +233,28 @@ body {
     background-color: var(--color-dark2);
     padding: 32px;
     border-radius: 16px;
+}
+
+.sucesso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 470px;
+    height: 200px;
+    margin-top: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 64px;
+    background-color: var(--color-dark2);
+    padding: 32px;
+    border-radius: 16px;
+}
+
+.sucesso h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(26, 197, 55);
 }
 
 .text {
