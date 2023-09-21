@@ -15,11 +15,6 @@
          <div id="area-logo">
              <h1><span href="index.php" class="roxo">SITEC </span><span class="ano">2023</span></h1>
          </div>
-
-         <div id="area-menu">
-             <a href="index.php">Início</a>
-             <a href="formulario.php">Refazer</a>
-         </div>
      </div>
 
      <div class="sucesso">
@@ -32,7 +27,7 @@
 <?php 
 ob_end_flush();
 flush();
-usleep(2000000);
+usleep(2500000);
 echo "<script>location.href='inicio.php';</script>";
 exit();
 ?>
