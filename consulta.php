@@ -1,7 +1,7 @@
 <?php
     include_once 'backend.php';
     Backend::restringirAcessoVisitante();
-    $dados = Backend::buscar();
+    $dados = Backend::buscarDados();
 ?>
 
  <!DOCTYPE html>
@@ -23,8 +23,7 @@
          </div>
 
          <div id="area-menu">
-             <a href="index.php">Início</a>
-             <a href="formulario.php">Formulário</a>
+             <a href="inicio.php">Início</a>
              <a href="consulta.php">Consulta</a>
              <a href="sair.php">Sair</a>
          </div>

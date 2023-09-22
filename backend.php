@@ -1,9 +1,151 @@
 <?php
 
+
 Class Backend {
+    
+    
+    
+    public static function salvarDados() {
+        if (isset($_POST['botao_enviar'])) {
+            if ((self::inserirPessoa() && self::inserirUsuario())) 
+            self::redirecionar('cadastroSucesso.php');
+        }
+    }
+    
+    
+    
+    public static function buscarDados() {
+        self::sessionStart();
+        return self::selecionarPessoaComIdUsuario($_SESSION['idUsuario']);
+    }
+
+    
+    
+    public static function autenticarUsuario() {
+        if (isset($_POST['botao_entrar'])) {
+            extract($_POST);
+            $vetorDadosUsuario = self::selecionarUsuarioComLogin($login);
+            if (password_verify($senha, $vetorDadosUsuario['senha'])) {
+                self::sessionStart();
+                $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
+                self::redirecionar('consulta.php');
+            }
+        }
+    }
     
 
 
+    public static function inserirUsuario() {
+        extract($_POST);
+        $conexao = self::conectar();
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO usuario (
+            login,
+            senha
+        ) VALUES (
+            '$login',
+            '$senhaHash'
+        )";
+        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->close();
+        return $resultadoDaSolicitacao;
+    }
+
+ 
+    
+    public static function inserirPessoa() {
+        extract($_POST);
+        $conexao = self::conectar();
+        $idUsuario = $conexao->insert_id;
+        $sql = "INSERT INTO pessoa (
+            idUsuario,
+            nome,
+            email,
+            fone,
+            sexo,
+            nascimento,
+            estado,
+            semestre,
+            descricao
+        ) VALUES (
+            '$idUsuario',
+            '$nome',
+            '$email',
+            '$fone',
+            '$sexo',
+            '$nascimento',
+            '$estado',
+            '$semestre',
+            '$descricao'
+        )";
+        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->close();
+        return $resultadoDaSolicitacao;
+    }
+    
+    
+
+    public static function selecionarPessoaComIdUsuario($idUsuario) {
+        $conexao = self::conectar();
+        $sql = "SELECT * 
+                FROM pessoa 
+                WHERE idUsuario = '".$idUsuario."'";
+        
+        $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
+        $conexao->close();
+        if ($solicitacaoSqlExecutadaComSucesso) { 
+            $vetorResultado = $solicitacaoSqlExecutadaComSucesso->fetch_array();
+            return $vetorResultado;
+        }
+    }
+    
+    
+    
+    public static function selecionarUsuarioComLogin($login) {
+        $conexao = self::conectar();
+        $sql = "SELECT * 
+                FROM usuario
+                WHERE login = '".$login."'";
+        $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
+        $conexao->close();
+        if ($solicitacaoSqlExecutadaComSucesso) {
+            $vetorResultado = $solicitacaoSqlExecutadaComSucesso->fetch_array();
+            return $vetorResultado;
+        }
+    }
+    
+
+
+    public static function restringirAcessoUsuario() {
+        self::sessionStart();
+        if (isset($_SESSION['idUsuario']))
+            self::redirecionar('inicio.php');
+    }
+        
+        
+
+    public static function restringirAcessoVisitante() {
+        self::sessionStart();
+        if (! isset($_SESSION['idUsuario'])) 
+            self::redirecionar('index.php');
+    }
+
+    
+    
+    public static function conectar() {
+        $nomeDoServidor = "localhost";
+        $nomeDoUsuario = "root";
+        $senha = "";
+        $nomeDoBancoDeDados = "sitec_2023";
+        $conexao = new mysqli($nomeDoServidor, $nomeDoUsuario, $senha, $nomeDoBancoDeDados);
+        if ($conexao->connect_error)
+            exit("Falha na conexão: ".$conexao->connect_error);
+        else
+            return $conexao;
+    }
+    
+    
+    
     public static function redirecionar($pagina) {
         echo "<script>location.href='".$pagina."';</script>";
         exit();
@@ -11,170 +153,20 @@ Class Backend {
     
     
     
+    public static function sessionStart() {
+        if (session_status() === PHP_SESSION_NONE)
+            session_start();
+    }
     
+
+     
     public static function atraso($segundos) {
         ob_end_flush();
         flush();
         sleep($segundos);
     }
     
-
-
-
-    public static function sessionStart() {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-    }
     
-    
-    
-    public static function restringirAcessoUsuario() {
-        self::sessionStart();
-        if (isset($_SESSION['idUsuario'])) {
-            echo "<script>location.href='inicio.php';</script>";
-            exit();
-        }
-    }
-    
-    
-
-    public static function restringirAcessoVisitante() {
-        self::sessionStart();
-        if (! isset($_SESSION['idUsuario'])) {
-            echo "<script>location.href='index.php';</script>";
-            exit();
-        }
-    }
-    
-    
-    
-    public static function selecionarPessoaComIdUsuario($idUsuario) {
-        $sql = "SELECT * FROM pessoa WHERE idUsuario = ".$idUsuario;
-        $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
-        if ($solicitacaoSqlExecutadaComSucesso == true) { 
-            $vetorResultado = $solicitacaoSqlExecutadaComSucesso->fetch_array();
-            return $vetorResultadoBusca;
-        }
-    }
-
-
-    
-    public static function conectar() {
-        // Configuração e conexão ao servidor e banco de dados.
         
-        $nomeDoServidor = "localhost";
-        $nomeDoUsuario = "root";
-        $senha = "";
-        $nomeDoBancoDeDados = "sitec_2023";
-        $conexao = new mysqli($nomeDoServidor, $nomeDoUsuario, $senha, $nomeDoBancoDeDados);
-        if ($conexao->connect_error)
-        die("Falha na conexão: " . $conexao->connect_error);
-        else
-            return $conexao;
-    }
-    
-    
-    
-    public static function autenticar() {
-        if (isset($_POST['botao_entrar'])) {
-            $conexao = self::conectar();
-            extract($_POST);
-            
-            $sql_busca = "SELECT * FROM usuario
-                WHERE
-                login = '$login'
-            ";
-            
-            $resultadoSolicitacaoSqlBusca = $conexao->query($sql_busca);
-            if ($resultadoSolicitacaoSqlBusca == true) {
-                $vetorResultadoBusca = $resultadoSolicitacaoSqlBusca->fetch_array();
-                $senha_hash = $vetorResultadoBusca['senha'];
-                $senhaCorreta = password_verify($senha, $senha_hash);
-                if ($senhaCorreta == true) {
+}    
 
-                    $idUsuario = $vetorResultadoBusca['idUsuario'];
-                    self::sessionStart();
-                    $_SESSION['idUsuario'] = $idUsuario;
-                    
-                    echo "<script>location.href='consulta.php';</script>";
-                    exit();
-                }
-            }
-        }
-    }
-    
-    
-    
-    public static function salvar() {
-        // Persistência dos dados do formulário no banco de dados.
-        
-        if (isset($_POST['botao_enviar'])) {
-            $conexao = self::conectar();
-            extract($_POST);
-        
-
-        
-            // Definição e execução da solicitação SQL (Tabela Usuario).
-        
-            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-            $sql_usuario = "INSERT INTO usuario (
-                login,
-                senha
-            ) VALUES (
-                '$login',
-                '$senha_hash'
-            )";
-            $solicitacaoSqlUsuarioExecutadaComSucesso = $conexao->query($sql_usuario);
-            
-        
-        
-            // Definição e execução da solicitação SQL (Tabela Pessoa).
-        
-            $idUsuario = $conexao->insert_id;
-            $sql_pessoa = "INSERT INTO pessoa (
-                idUsuario,
-                nome,
-                email,
-                fone,
-                sexo,
-                nascimento,
-                estado,
-                semestre,
-                descricao
-            ) VALUES (
-                '$idUsuario',
-                '$nome',
-                '$email',
-                '$fone',
-                '$sexo',
-                '$nascimento',
-                '$estado',
-                '$semestre',
-                '$descricao'
-            )";
-            $solicitacaoSqlPessoaExecutadaComSucesso = $conexao->query($sql_pessoa);
-        
-        
-        
-            // Exibição do resultado das solicitações e redirecionamento para consulta.
-            
-            if (($solicitacaoSqlUsuarioExecutadaComSucesso && $solicitacaoSqlPessoaExecutadaComSucesso) == true) {
-                echo "<script>location.href='cadastroSucesso.php';</script>";
-            } else
-                echo "Erro na inserção dos dados': " . $conexao->error;
-            $conexao->close();
-        }
-    }
-
-    
-    
-    public static function buscar() {
-        $conexao = self::conectar();
-        self::sessionStart();
-        $idUsuario = $_SESSION['idUsuario'];
-
-        $sql_busca = 
-
-    }
-}

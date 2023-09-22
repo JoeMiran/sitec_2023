@@ -1,7 +1,7 @@
 <?php
     include_once 'backend.php';
     Backend::restringirAcessoUsuario();
-    Backend::autenticar();
+    Backend::autenticarUsuario();
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,6 @@
                 <div id="area-menu">
                     <a href="index.php">Início</a> 
                     <a href="formulario.php">Formulário</a> 
-                    <a href="consulta.php">Consulta</a>  
                 </div>
            
             </div>
@@ -51,7 +50,7 @@
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required>
                     <span class="erro_login"></span>
                     <div class="botoes">
-                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit" onclick="consultarConta(event)">Entrar</button>
+                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit" >Entrar</button>
                         <a class="botao_cadastrar" href="formulario.php">Cadastrar</a>
                     </div>
                 </form>

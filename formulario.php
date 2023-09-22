@@ -1,7 +1,7 @@
 <?php 
     include_once 'backend.php';
     Backend::restringirAcessoUsuario();
-    Backend::salvar();
+    Backend::salvarDados();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,6 @@
         <div id="area-menu">
             <a href="index.php">Início</a> 
             <a href="formulario.php">Formulário</a> 
-            <a href="consulta.php">Consulta</a>  
         </div>       
     </div>
 
