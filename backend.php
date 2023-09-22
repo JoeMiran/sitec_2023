@@ -1,39 +1,24 @@
 <?php
 
 Class Backend {
-    public static function conectar() {
-        // Configuração e conexão ao servidor e banco de dados.
-
-        $nomeDoServidor = "localhost";
-        $nomeDoUsuario = "root";
-        $senha = "";
-        $nomeDoBancoDeDados = "sitec_2023";
-        $conexao = new mysqli($nomeDoServidor, $nomeDoUsuario, $senha, $nomeDoBancoDeDados);
-        if ($conexao->connect_error)
-            die("Falha na conexão: " . $conexao->connect_error);
-        else
-            return $conexao;
-    }
+    
 
 
     public static function redirecionar($pagina) {
         echo "<script>location.href='".$pagina."';</script>";
         exit();
     }
-
+    
+    
+    
+    
     public static function atraso($segundos) {
         ob_end_flush();
         flush();
         sleep($segundos);
     }
+    
 
-
-    function executarSolicitacao($sql, $conexao) {
-        $resultadoExecucaoSql = $conexao->query($sql);
-        if ($resultadoExecucaoSql == true) {
-            return 
-        }
-    }
 
 
     public static function sessionStart() {
@@ -41,7 +26,9 @@ Class Backend {
             session_start();
         }
     }
-
+    
+    
+    
     public static function restringirAcessoUsuario() {
         self::sessionStart();
         if (isset($_SESSION['idUsuario'])) {
@@ -49,6 +36,8 @@ Class Backend {
             exit();
         }
     }
+    
+    
 
     public static function restringirAcessoVisitante() {
         self::sessionStart();
@@ -57,12 +46,41 @@ Class Backend {
             exit();
         }
     }
+    
+    
+    
+    public static function selecionarPessoaComIdUsuario($idUsuario) {
+        $sql = "SELECT * FROM pessoa WHERE idUsuario = ".$idUsuario;
+        $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
+        if ($solicitacaoSqlExecutadaComSucesso == true) { 
+            $vetorResultado = $solicitacaoSqlExecutadaComSucesso->fetch_array();
+            return $vetorResultadoBusca;
+        }
+    }
 
+
+    
+    public static function conectar() {
+        // Configuração e conexão ao servidor e banco de dados.
+        
+        $nomeDoServidor = "localhost";
+        $nomeDoUsuario = "root";
+        $senha = "";
+        $nomeDoBancoDeDados = "sitec_2023";
+        $conexao = new mysqli($nomeDoServidor, $nomeDoUsuario, $senha, $nomeDoBancoDeDados);
+        if ($conexao->connect_error)
+        die("Falha na conexão: " . $conexao->connect_error);
+        else
+            return $conexao;
+    }
+    
+    
+    
     public static function autenticar() {
         if (isset($_POST['botao_entrar'])) {
             $conexao = self::conectar();
             extract($_POST);
-
+            
             $sql_busca = "SELECT * FROM usuario
                 WHERE
                 login = '$login'
@@ -78,18 +96,19 @@ Class Backend {
                     $idUsuario = $vetorResultadoBusca['idUsuario'];
                     self::sessionStart();
                     $_SESSION['idUsuario'] = $idUsuario;
-
-                    echo "Seja bem vindo!";
+                    
                     echo "<script>location.href='consulta.php';</script>";
                     exit();
                 }
             }
         }
     }
-
+    
+    
+    
     public static function salvar() {
         // Persistência dos dados do formulário no banco de dados.
-
+        
         if (isset($_POST['botao_enviar'])) {
             $conexao = self::conectar();
             extract($_POST);
@@ -148,14 +167,14 @@ Class Backend {
         }
     }
 
+    
+    
     public static function buscar() {
         $conexao = self::conectar();
         self::sessionStart();
         $idUsuario = $_SESSION['idUsuario'];
 
-        $sql_busca = "SELECT * FROM pessoa WHERE idUsuario = '$idUsuario'";
-        $solicitacaoSqlBuscaExecutadaComSucesso = $conexao->query($sql_busca);
-        $vetorResultadoBusca = $solicitacaoSqlBuscaExecutadaComSucesso->fetch_array();
-        return $vetorResultadoBusca;
+        $sql_busca = 
+
     }
 }
