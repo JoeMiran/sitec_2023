@@ -30,7 +30,8 @@
     <div class="content">
         <form method="post" action="formulario.php" id="form">
             <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
-
+            <?php Backend::gerarToken();?>
+            
             <div>
                 <input type="text" name="nome" placeholder="Nome..." class="inputs required">
                 <span class="span-required">Praesent egestas Praesent egestas</span>

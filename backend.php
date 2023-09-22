@@ -28,7 +28,7 @@ Class Backend {
             if (password_verify($senha, $vetorDadosUsuario['senha'])) {
                 self::sessionStart();
                 $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
-                self::redirecionar('consulta.php');
+                self::redirecionar('loginSucesso.php');
             }
         }
     }
@@ -130,7 +130,25 @@ Class Backend {
             self::redirecionar('index.php');
     }
 
-    
+
+
+    public static function gerarToken() {
+        self::sessionStart();
+        $_SESSION['token'] = md5(uniqid(mt_rand(), true));
+        echo "<input name='token' value='".$_SESSION['token']."' type= 'hidden'>";
+    }
+
+
+
+    public static function validarToken($token) {
+        self::sessionStart();
+        if (! (isset($_SESSION['token']) && $_SESSION['token'] == $_POST['token'])) {
+            header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
+            exit;
+        }
+    }
+
+
     
     public static function conectar() {
         $nomeDoServidor = "localhost";

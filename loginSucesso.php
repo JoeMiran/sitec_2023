@@ -1,8 +1,5 @@
 <?php 
     include_once 'backend.php';
-    Backend::validarToken();
-    Backend::atraso(2);
-    Backend::redirecionar('index.php');
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +22,14 @@
      </div>
 
      <div class="sucesso">
-        <h2>CADASTRO REALIZADO COM SUCESSO!</h2> 
-        <h3>Entre com suas credenciais para acessar seys dados.</h3> 
+        <h2>LOGIN REALIZADO COM SUCESSO!</h2> 
+        <h3>Você esta sendo redirecionado para a página inicial.</h3> 
      </div>  
  </body>
 
 </html>
+
+<?php 
+    Backend::atraso(2);
+    Backend::redirecionar('inicio.php');
+?>

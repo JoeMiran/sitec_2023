@@ -46,12 +46,19 @@
             <main class="area_login">
                 <h2>LOGIN</h2>
                 <form class="formulario" method="post" action="index.php">
+                    <?php Backend::gerarToken();?>
+
                     <input type="text" name="login" placeholder="Login" class="inputs" required>
+
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required>
+                    
                     <span class="erro_login"></span>
                     <div class="botoes">
+                        
                         <button name="botao_entrar" value="1" class="botao_entrar" type="submit" >Entrar</button>
+
                         <a class="botao_cadastrar" href="formulario.php">Cadastrar</a>
+                        
                     </div>
                 </form>
             </main>
