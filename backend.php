@@ -140,11 +140,15 @@ Class Backend {
 
 
 
-    public static function validarToken($token) {
+    public static function validarToken() {
         self::sessionStart();
-        if (! (isset($_SESSION['token']) && $_SESSION['token'] == $_POST['token'])) {
-            header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
-            exit;
+        try {
+            if (! (isset($_SESSION['token']) && $_SESSION['token'] == $_POST['token'])) {
+                header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
+                exit;
+            }
+        } catch (Exception $e) {
+            echo "Erro na validação do token: ".$e->getMessage();
         }
     }
 
