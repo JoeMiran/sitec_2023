@@ -7,7 +7,7 @@
      <meta name="viewport" content="width=device-width" , initial-scale="1.0">
      <link rel="stylesheet" type="text/css" href="./css/style.css">
      <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
-     <title>Consulta</title>
+     <title>Login bem-sucedido</title>
  </head>
 
  <body>
@@ -19,7 +19,7 @@
 
      <div class="sucesso">
         <h2>LOGIN REALIZADO COM SUCESSO!</h2> 
-        <h3>Você esta sendo redirecionado para a página inicial.</h3> 
+        <h3>Você está sendo redirecionado para a página inicial.</h3> 
      </div>  
  </body>
 

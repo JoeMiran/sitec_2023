@@ -7,7 +7,7 @@
      <meta name="viewport" content="width=device-width" , initial-scale="1.0">
      <link rel="stylesheet" type="text/css" href="./css/style.css">
      <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
-     <title>Cadastro bem-sucedido</title>
+     <title>Exclusão bem-sucedida</title>
  </head>
 
  <body>
@@ -18,8 +18,8 @@
      </div>
 
      <div class="sucesso">
-        <h2>CADASTRO REALIZADO COM SUCESSO!</h2> 
-        <h3>Entre com suas credenciais para acessar seus dados.</h3> 
+        <h2>EXCLUSÃO REALIZADA COM SUCESSO!</h2> 
+        <h3>Você está sendo redirecionado para a página inicial.</h3> 
      </div>  
  </body>
 
@@ -27,6 +27,8 @@
 
 <?php 
     include_once 'backend.php';
+    Backend::comecarSessao();
+    $_SESSION = array();
     Backend::atraso(2);
     Backend::redirecionar('index.php');
 ?>

@@ -23,6 +23,7 @@
                 <div id="area-menu">
                     <a href="inicio.php">Início</a> 
                     <a href="consulta.php">Consulta</a>  
+                    <a href="exclusao.php">Exclusão</a>
                     <a href="sair.php">Sair</a>  
                 </div>
            

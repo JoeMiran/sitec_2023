@@ -17,7 +17,7 @@ Class Backend {
     
     
     public static function consultarDados() {
-        self::sessionStart();
+        self::comecarSessao();
         return self::selecionarPessoaComIdUsuario($_SESSION['idUsuario']);
     }
 
@@ -30,7 +30,7 @@ Class Backend {
             $vetorDadosUsuario = self::selecionarUsuarioComLogin($login);
             if ($vetorDadosUsuario) {
                 if (password_verify($senha, $vetorDadosUsuario['senha'])) {
-                    self::sessionStart();
+                    self::comecarSessao();
                     $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
                     self::redirecionar('loginSucesso.php');
                 }
@@ -40,6 +40,18 @@ Class Backend {
     }
     
 
+
+    public static function excluirDados() {
+        if (isset($_POST['botao_excluir'])) {
+            self::validarToken($_POST['token']);
+            self::comecarSessao();
+            if (self::deletarUsuarioComIdUsuario($_SESSION['idUsuario']) && 
+                self::deletarPessoaComIdUsuario($_SESSION['idUsuario']))
+                self::redirecionar('exclusaoSucesso.php');
+        }
+    }
+    
+    
 
     public static function inserirUsuario() {
         extract($_POST);
@@ -99,8 +111,7 @@ Class Backend {
         $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
         $conexao->close();
         if ($solicitacaoSqlExecutadaComSucesso) { 
-            $vetorResultado = $solicitacaoSqlExecutadaComSucesso->fetch_array();
-            return $vetorResultado;
+            return $solicitacaoSqlExecutadaComSucesso->fetch_array();
         }
     }
     
@@ -114,15 +125,38 @@ Class Backend {
         $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
         $conexao->close();
         if ($solicitacaoSqlExecutadaComSucesso) {
-            $vetorResultado = $solicitacaoSqlExecutadaComSucesso->fetch_array();
-            return $vetorResultado;
+            return $solicitacaoSqlExecutadaComSucesso->fetch_array();
         }
     }
     
 
 
+    public static function deletarUsuarioComIdUsuario($idUsuario) {
+        $conexao = self::conectar();
+        $sql = "DELETE 
+                FROM usuario
+                WHERE idUsuario = ".$idUsuario."";
+        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->close();
+        return $resultadoDaSolicitacao;
+    }
+
+
+
+    public static function deletarPessoaComIdUsuario($idUsuario) {
+        $conexao = self::conectar();
+        $sql = "DELETE 
+                FROM pessoa
+                WHERE idUsuario = ".$idUsuario."";
+        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->close();
+        return $resultadoDaSolicitacao;
+    }
+    
+
+
     public static function restringirAcessoUsuario() {
-        self::sessionStart();
+        self::comecarSessao();
         if (isset($_SESSION['idUsuario']))
             self::redirecionar('inicio.php');
     }
@@ -130,7 +164,7 @@ Class Backend {
         
 
     public static function restringirAcessoVisitante() {
-        self::sessionStart();
+        self::comecarSessao();
         if (! isset($_SESSION['idUsuario'])) 
             self::redirecionar('index.php');
     }
@@ -138,7 +172,7 @@ Class Backend {
 
 
     public static function gerarToken() {
-        self::sessionStart();
+        self::comecarSessao();
         $_SESSION['token'] = md5(uniqid(mt_rand(), true));
         echo "<input name='token' value='".$_SESSION['token']."' type= 'hidden'>";
     }
@@ -146,7 +180,7 @@ Class Backend {
 
 
     public static function validarToken($token) {
-        self::sessionStart();
+        self::comecarSessao();
         if (! (isset($_SESSION['token']) && $_SESSION['token'] == $token)) {
             header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
             echo '<script>alert("405 Método não permitido.")</script>';
@@ -177,7 +211,7 @@ Class Backend {
     
     
     
-    public static function sessionStart() {
+    public static function comecarSessao() {
         if (session_status() === PHP_SESSION_NONE)
             session_start();
     }
