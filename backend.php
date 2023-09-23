@@ -8,8 +8,9 @@ Class Backend {
     public static function cadastrarDados() {
         if (isset($_POST['botao_enviar'])) {
             self::validarToken($_POST['token']);
-            if ((self::inserirUsuario() && self::inserirPessoa())) 
-            self::redirecionar('cadastroSucesso.php');
+            $idUsuario = self::inserirUsuario();
+            if (self::inserirPessoaComIdUsuario($idUsuario)) 
+                self::redirecionar('cadastroSucesso.php');
         }
     }
     
@@ -27,11 +28,14 @@ Class Backend {
             self::validarToken($_POST['token']);
             extract($_POST);
             $vetorDadosUsuario = self::selecionarUsuarioComLogin($login);
-            if (password_verify($senha, $vetorDadosUsuario['senha'])) {
-                self::sessionStart();
-                $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
-                self::redirecionar('loginSucesso.php');
+            if ($vetorDadosUsuario) {
+                if (password_verify($senha, $vetorDadosUsuario['senha'])) {
+                    self::sessionStart();
+                    $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
+                    self::redirecionar('loginSucesso.php');
+                }
             }
+            echo "<script>alert('Senha e/ou login errados ou o usuário não existe.');</script>";
         }
     }
     
@@ -48,17 +52,17 @@ Class Backend {
             '$login',
             '$senhaHash'
         )";
-        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->query($sql);
+        $idUsuario = $conexao->insert_id;
         $conexao->close();
-        return $resultadoDaSolicitacao;
+        return $idUsuario;
     }
 
  
     
-    public static function inserirPessoa() {
+    public static function inserirPessoaComIdUsuario($idUsuario) {
         extract($_POST);
         $conexao = self::conectar();
-        $idUsuario = $conexao->insert_id;
         $sql = "INSERT INTO pessoa (
             idUsuario,
             nome,
@@ -188,4 +192,3 @@ Class Backend {
     
         
 }    
-

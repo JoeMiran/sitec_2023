@@ -62,14 +62,14 @@
             <div class="inputs required">
                 <label class="inputs required" for="estado">Estado:</label>
                 <select id="estado" name="estado" class="inputs required">
-                    <option value="SP">PA</option>
-                    <option value="RJ">AM</option>
-                    <option value="PB">AL</option>
-                    <option value="PB">AC</option>
-                    <option value="PB">PR</option>
-                    <option value="PB">RJ</option>
-                    <option value="PB">SP</option>
-                    <option value="PB">MA</option>
+                    <option value="PA">PA</option>
+                    <option value="AM">AM</option>
+                    <option value="AL">AL</option>
+                    <option value="AC">AC</option>
+                    <option value="PR">PR</option>
+                    <option value="RJ">RJ</option>
+                    <option value="SP">SP</option>
+                    <option value="MA">MA</option>
                 </select>
             </div>
 

@@ -19,7 +19,7 @@
 
      <div class="sucesso">
         <h2>CADASTRO REALIZADO COM SUCESSO!</h2> 
-        <h3>Entre com suas credenciais para acessar seys dados.</h3> 
+        <h3>Entre com suas credenciais para acessar seus dados.</h3> 
      </div>  
  </body>
 

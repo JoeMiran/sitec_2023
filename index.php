@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
+        <script type="text/javascript" src="validacao.js"></script>
         <title>Início</title>
     </head>
     <body>
@@ -52,53 +53,16 @@
 
                     <input type="password" name="senha" placeholder="Senha" class="inputs" required>
                     
-                    <span class="erro_login"></span>
                     <div class="botoes">
                         
-                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit" >Entrar</button>
-
+                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit" onclick="validarEntrada(event)">Entrar</button>
+                        
                         <a class="botao_cadastrar" href="cadastro.php">Cadastrar</a>
                         
                     </div>
+                    <span class="erro_login"></span>
                 </form>
             </main>
         </div>
-
-        <script>
-
-            function consultarConta(event) {
-
-            const usuario = document.querySelector('input[name="login"]').value;
-            const senha = document.querySelector('input[name="senha"]').value;
-            event.preventDefault();
-            
-            if (senha.length < 8 || usuario.length < 3) {
-
-                const erroLogin = document.querySelector('.erro_login');
-                erroLogin.innerHTML = "Usuário ou senha inválidos!";
-
-            } else {
-
-                document.querySelector('body').classList.add('exiting');
-
-                setTimeout(() => {
-                    window.location.href = "consulta.php";
-                }, 500);
-
-            }
-            }
-
-            function cadastrarConta(event) {
-
-            document.querySelector('body').classList.add('exiting');
-
-            setTimeout(() => {
-                window.location.href = "cadastro.php";
-            }, 500);
-
-            }
-
-        </script>
-
     </body>
 </html>
