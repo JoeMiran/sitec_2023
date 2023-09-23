@@ -149,7 +149,8 @@ Class Backend {
         self::sessionStart();
         if (! (isset($_SESSION['token']) && $_SESSION['token'] == $token)) {
             header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
-            exit;
+            echo '<script>alert("405 Método não permitido.")</script>';
+            self::redirecionar('index.php');
         }
     }
 

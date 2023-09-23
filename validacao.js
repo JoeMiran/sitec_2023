@@ -7,10 +7,3 @@ function validarEntrada(event) {
         erroLogin.innerHTML = "Login ou senha inválidos!";
     }
 }
-
-
-
-// function validarUsuario() {
-//     const erroLogin = document.querySelector('.erro_login');
-//     erroLogin.innerHTML = "Senha e login errados ou o usuário não existe.";
-// }
