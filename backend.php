@@ -5,16 +5,17 @@ Class Backend {
     
     
     
-    public static function salvarDados() {
+    public static function cadastrarDados() {
         if (isset($_POST['botao_enviar'])) {
-            if ((self::inserirPessoa() && self::inserirUsuario())) 
+            self::validarToken($_POST['token']);
+            if ((self::inserirUsuario() && self::inserirPessoa())) 
             self::redirecionar('cadastroSucesso.php');
         }
     }
     
     
     
-    public static function buscarDados() {
+    public static function consultarDados() {
         self::sessionStart();
         return self::selecionarPessoaComIdUsuario($_SESSION['idUsuario']);
     }
@@ -23,6 +24,7 @@ Class Backend {
     
     public static function autenticarUsuario() {
         if (isset($_POST['botao_entrar'])) {
+            self::validarToken($_POST['token']);
             extract($_POST);
             $vetorDadosUsuario = self::selecionarUsuarioComLogin($login);
             if (password_verify($senha, $vetorDadosUsuario['senha'])) {
@@ -89,8 +91,7 @@ Class Backend {
         $conexao = self::conectar();
         $sql = "SELECT * 
                 FROM pessoa 
-                WHERE idUsuario = '".$idUsuario."'";
-        
+                WHERE idUsuario = ".$idUsuario."";
         $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
         $conexao->close();
         if ($solicitacaoSqlExecutadaComSucesso) { 
@@ -140,15 +141,11 @@ Class Backend {
 
 
 
-    public static function validarToken() {
+    public static function validarToken($token) {
         self::sessionStart();
-        try {
-            if (! (isset($_SESSION['token']) && $_SESSION['token'] == $_POST['token'])) {
-                header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
-                exit;
-            }
-        } catch (Exception $e) {
-            echo "Erro na validação do token: ".$e->getMessage();
+        if (! (isset($_SESSION['token']) && $_SESSION['token'] == $token)) {
+            header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
+            exit;
         }
     }
 

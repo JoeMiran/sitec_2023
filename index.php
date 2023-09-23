@@ -22,7 +22,7 @@
                 
                 <div id="area-menu">
                     <a href="index.php">Início</a> 
-                    <a href="formulario.php">Formulário</a> 
+                    <a href="cadastro.php">Cadastro</a> 
                 </div>
            
             </div>
@@ -57,7 +57,7 @@
                         
                         <button name="botao_entrar" value="1" class="botao_entrar" type="submit" >Entrar</button>
 
-                        <a class="botao_cadastrar" href="formulario.php">Cadastrar</a>
+                        <a class="botao_cadastrar" href="cadastro.php">Cadastrar</a>
                         
                     </div>
                 </form>
@@ -93,7 +93,7 @@
             document.querySelector('body').classList.add('exiting');
 
             setTimeout(() => {
-                window.location.href = "formulario.php";
+                window.location.href = "cadastro.php";
             }, 500);
 
             }

@@ -1,10 +1,3 @@
-<?php 
-    include_once 'backend.php';
-    Backend::validarToken();
-    Backend::atraso(2);
-    Backend::redirecionar('index.php');
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -31,3 +24,9 @@
  </body>
 
 </html>
+
+<?php 
+    include_once 'backend.php';
+    Backend::atraso(2);
+    Backend::redirecionar('index.php');
+?>

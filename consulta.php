@@ -1,7 +1,7 @@
 <?php
     include_once 'backend.php';
     Backend::restringirAcessoVisitante();
-    $dados = Backend::buscarDados();
+    $dados = Backend::consultarDados();
 ?>
 
  <!DOCTYPE html>

@@ -1,7 +1,3 @@
-<?php 
-    include_once 'backend.php';
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,6 +26,7 @@
 </html>
 
 <?php 
+    include_once 'backend.php';
     Backend::atraso(2);
     Backend::redirecionar('inicio.php');
 ?>
