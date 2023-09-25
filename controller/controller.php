@@ -1,131 +1,126 @@
 <?php
-include_once '../model/usuario.php';
-include_once '../model/pessoa.php';
+include_once '../lib/LibUtil.php';
+include_once '../model/DTO/Usuario.php';
+include_once '../model/DTO/Pessoa.php';
+include_once '../model/DAO/UsuarioDAO.php';
+include_once '../model/DAO/PessoaDAO.php';
 
 
 
-function consultarPerfil() {
-    comecarSessao();
-    $pessoa = new Pessoa(idUsuario: $_SESSION['idUsuario']);
-    return $pessoa->selecionar();
-}
+Class Controller {
 
 
 
-function excluirPerfil() {
-    if (isset($_POST['botao_excluir'])) {
-        validarToken($_POST['token']);
-        comecarSessao();
-        $usuario = new Usuario(idUsuario: $_SESSION['idUsuario']);
-        $pessoa = new Pessoa(idUsuario: $_SESSION['idUsuario']);
-        if ($usuario->deletar() && 
-            $pessoa->deletar())
-            redirecionar('exclusaoSucesso.php');
+    public function atrasarRedirecionarIndex() {
+        LibUtil::atrasar(2);
+        LibUtil::redirecionar('index.php');
     }
-}
 
 
 
-function cadastrarPerfil() {
-    if (isset($_POST['botao_enviar'])) {
-        validarToken($_POST['token']);
-        extract($_POST);
-        $usuario = new Usuario(login: $login, senha: password_hash($senha, PASSWORD_DEFAULT));
-        $idUsuario = $usuario->inserir();
-        $pessoa = new Pessoa(idUsuario: $idUsuario, nome: $nome, email: $email, 
-                            fone: $fone, sexo: $sexo, nascimento: $nascimento, 
-                            estado: $estado, semestre: $semestre, descricao: $descricao);
-        if ($pessoa->inserir()) 
-            redirecionar('cadastroSucesso.php');
+    public function atrasarRedirecionarInicio() {
+        LibUtil::atrasar(2);
+        LibUtil::redirecionar('inicio.php');
     }
-}
 
 
 
-function autenticarCredenciais() {
-    if (isset($_POST['botao_entrar'])) {
-        validarToken($_POST['token']);
-        extract($_POST);
-        $usuario = new Usuario(login: $login);
-        $vetorDadosUsuario = $usuario->selecionar();
-        if ($vetorDadosUsuario) {
-            if (password_verify($senha, $vetorDadosUsuario['senha'])) {
-                comecarSessao();
-                $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
-                redirecionar('loginSucesso.php');
-            }
-        }
-        echo "<script>alert('Senha e/ou login errados ou o usuário não existe.');</script>";
+    public function restringirAcessoUsuario() {
+        LibUtil::comecarSessao();
+        if (isset($_SESSION['idUsuario']))
+            LibUtil::redirecionar('inicio.php');
     }
-}
-
-
-
-function restringirAcessoUsuario() {
-    comecarSessao();
-    if (isset($_SESSION['idUsuario']))
-        redirecionar('inicio.php');
-}
+        
+        
+    
+    public function restringirAcessoVisitante() {
+        LibUtil::comecarSessao();
+        if (! isset($_SESSION['idUsuario'])) 
+            LibUtil::redirecionar('index.php');
+    }
     
     
-
-function restringirAcessoVisitante() {
-    comecarSessao();
-    if (! isset($_SESSION['idUsuario'])) 
-        redirecionar('index.php');
-}
-
-
-
-function gerarToken() {
-    comecarSessao();
-    $_SESSION['token'] = md5(uniqid(mt_rand(), true));
-    echo "<input name='token' value='".$_SESSION['token']."' type= 'hidden'>";
-}
-
-
-
-function validarToken($token) {
-    comecarSessao();
-    if (! (isset($_SESSION['token']) && $_SESSION['token'] == $token)) {
+    
+    public function gerarToken() {
+        LibUtil::comecarSessao();
+        $_SESSION['token'] = md5(uniqid(mt_rand(), true));
+        echo "<input name='token' value='".$_SESSION['token']."' type= 'hidden'>";
+    }
+    
+    
+    
+    public function validarToken($token) {
+        LibUtil::comecarSessao();
+        return (! (isset($_SESSION['token']) && $_SESSION['token'] == $token));
         header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
-        echo '<script>alert("405 Método não permitido.")</script>';
-        redirecionar('index.php');
-    }
-}
-
-
-
-function conectar() {
-    $nomeDoServidor = "localhost";
-    $nomeDoUsuario = "root";
-    $senha = "";
-    $nomeDoBancoDeDados = "sitec_2023";
-    $conexao = new mysqli($nomeDoServidor, $nomeDoUsuario, $senha, $nomeDoBancoDeDados);
-    if ($conexao->connect_error)
-        exit("Falha na conexão: ".$conexao->connect_error);
-    else
-        return $conexao;
-}
-
-
-
-function redirecionar($pagina) {
-    echo "<script>location.href='".$pagina."';</script>";
-    exit();
-}
-
-
-
-function comecarSessao() {
-    if (session_status() === PHP_SESSION_NONE)
-        session_start();
-}
-
-
+            echo '<script>alert("405 Método não permitido.")</script>';
+            LibUtil::redirecionar('index.php');
+        }
+        
     
-function atraso($segundos) {
-    ob_end_flush();
-    flush();
-    sleep($segundos);
-}
+    
+    public function sairPerfil(){
+        LibUtil::comecarSessao();
+        $_SESSION = array();
+        LibUtil::atrasar(2);
+        LibUtil::redirecionar('index.php');
+    }
+    
+    
+        
+    public function consultarPerfil() {
+        LibUtil::comecarSessao();
+        $pessoa = new Pessoa(idUsuario: $_SESSION['idUsuario']);
+        return (new PessoaDAO())->selecionar($pessoa);
+    }
+    
+    
+    
+    public function excluirPerfil() {
+        if (isset($_POST['botao_excluir'])) {
+            LibUtil::comecarSessao();
+            $usuario = new Usuario(idUsuario: $_SESSION['idUsuario']);
+            $pessoa = new Pessoa(idUsuario: $_SESSION['idUsuario']);
+            if ((new UsuarioDAO())->deletar($usuario) && 
+                (new PessoaDAO())->deletar($pessoa))
+                LibUtil::redirecionar('exclusaoSucesso.php');
+        }
+    }
+    
+    
+    
+    public function cadastrarPerfil() {
+        if (isset($_POST['botao_enviar'])) {
+            extract($_POST);
+            $usuario = new Usuario(login: $login, senha: password_hash($senha, PASSWORD_DEFAULT));
+            $idUsuario = (new UsuarioDAO)->inserir($usuario);
+            $pessoa = new Pessoa(idUsuario: $idUsuario, nome: $nome, email: $email, 
+                                fone: $fone, sexo: $sexo, nascimento: $nascimento, 
+                                estado: $estado, semestre: $semestre, descricao: $descricao);
+            if ((new PessoaDAO)->inserir($pessoa)) 
+                LibUtil::redirecionar('cadastroSucesso.php');
+        }
+    }
+    
+    
+    
+    public function autenticarCredenciais() {
+        if (isset($_POST['botao_entrar'])) {
+            extract($_POST);
+            $usuario = new Usuario(login: $login);
+            $vetorDadosUsuario = (new UsuarioDAO)->selecionar($usuario);
+            if ($vetorDadosUsuario) {
+                if (password_verify($senha, $vetorDadosUsuario['senha'])) {
+                    LibUtil::comecarSessao();
+                    $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
+                    LibUtil::redirecionar('loginSucesso.php');
+                }
+            }
+            echo "<script>alert('Senha e/ou login errados ou o usuário não existe.');</script>";
+        }
+    }
+
+
+
+}    
+

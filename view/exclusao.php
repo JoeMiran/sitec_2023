@@ -1,7 +1,8 @@
 <?php 
-    include_once '../controller/controller.php';
-    restringirAcessoVisitante();
-    excluirPerfil();
+    include_once '../controller/Controller.php';
+    $controller = new Controller();
+    $controller->restringirAcessoVisitante();
+    $controller->excluirPerfil();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@
         <h3>Todos os seus dados serão apagados permanentemente.</h3> 
 
         <form class="formulario" method="post" action="exclusao.php">
-            <?php gerarToken();?>
+            <?php $controller->gerarToken();?>
     
             <div class="botoes_exclusao">
                 

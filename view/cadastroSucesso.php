@@ -26,7 +26,5 @@
 </html>
 
 <?php 
-    include_once '../controller/controller.php';
-    atraso(2);
-    redirecionar('index.php');
-?>
+    include_once '../controller/Controller.php';
+    (new Controller())->atrasarRedirecionarIndex();

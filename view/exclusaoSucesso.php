@@ -26,9 +26,5 @@
 </html>
 
 <?php 
-    include_once '../controller/controller.php';
-    comecarSessao();
-    $_SESSION = array();
-    atraso(2);
-    redirecionar('index.php');
-?>
+    include_once '../controller/Controller.php';
+    (new Controller())->sairPerfil();

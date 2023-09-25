@@ -1,7 +1,8 @@
 <?php 
-    include_once '../controller/controller.php';
-    restringirAcessoUsuario();
-    cadastrarPerfil();
+    include_once '../controller/Controller.php';
+    $controller = new Controller();
+    $controller->restringirAcessoUsuario();
+    $controller->cadastrarPerfil();
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
     <div class="content">
         <form method="post" action="cadastro.php" id="form">
             <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
-            <?php gerarToken();?>
+            <?php $controller->gerarToken();?>
             
             <div>
                 <input type="text" name="nome" placeholder="Nome..." class="inputs required">

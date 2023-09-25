@@ -1,28 +1,20 @@
 <?php
-include_once '../controller/controller.php';
+include_once 'DAO.php';
 
 
 
-Class Usuario {
+Class UsuarioDAO extends DAO{
 
 
 
-    public function __construct(
-        private $idUsuario = null, 
-        private $login = null, 
-        private $senha = null
-    ) {}
-
-
-
-    function inserir() {
-        $conexao = conectar();
+    public function inserir($usuario) {
+        $conexao = $this->conectar();
         $sql = "INSERT INTO usuario (
             login,
             senha
         ) VALUES (
-            '".$this->login."',
-            '".$this->senha."'
+            '".$usuario->login."',
+            '".$usuario->senha."'
         )";
         $conexao->query($sql);
         $idUsuario = $conexao->insert_id;
@@ -32,11 +24,11 @@ Class Usuario {
     
     
     
-    function selecionar() {
-        $conexao = conectar();
+    public function selecionar($usuario) {
+        $conexao = $this->conectar();
         $sql = "SELECT * 
                 FROM usuario
-                WHERE login = '".$this->login."'";
+                WHERE login = '".$usuario->login."'";
         $solicitacaoSqlExecutadaComSucesso = $conexao->query($sql);
         $conexao->close();
         if ($solicitacaoSqlExecutadaComSucesso) {
@@ -46,15 +38,17 @@ Class Usuario {
     
     
     
-    function deletar() {
-        $conexao = conectar();
+    public function deletar($usuario) {
+        $conexao = $this->conectar();
         $sql = "DELETE 
                 FROM usuario
-                WHERE idUsuario = ".$this->idUsuario."";
+                WHERE idUsuario = ".$usuario->idUsuario."";
         $resultadoDaSolicitacao = $conexao->query($sql);
         $conexao->close();
         return $resultadoDaSolicitacao;
     }
+
+
 
 
 }

@@ -1,7 +1,8 @@
 <?php
-    include_once '../controller/controller.php';
-    restringirAcessoUsuario();
-    autenticarCredenciais();
+    include_once '../controller/Controller.php';
+    $controller = new Controller();
+    $controller->restringirAcessoUsuario();
+    $controller->autenticarCredenciais();
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
             <main class="area_login">
                 <h2>LOGIN</h2>
                 <form class="formulario" method="post" action="index.php">
-                    <?php gerarToken();?>
+                    <?php $controller->gerarToken();?>
 
                     <input type="text" name="login" placeholder="Login" class="inputs" required>
 

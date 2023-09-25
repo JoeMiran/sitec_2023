@@ -1,7 +1,8 @@
 <?php
-    include_once '../controller/controller.php';
-    restringirAcessoVisitante();
-    $perfil = consultarPerfil();
+    include_once '../controller/Controller.php';
+    $controller = new Controller();
+    $controller->restringirAcessoVisitante();
+    $perfil = $controller->consultarPerfil();
 ?>
 
 <!DOCTYPE html>
