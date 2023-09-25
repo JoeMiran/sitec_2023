@@ -19,16 +19,16 @@
                 <a href="cadastro.php">Cadastro</a> 
             </div>       
         </div>
-        <div class="content">
-            <form method="post" action="cadastro.php" id="form">
+        <div>
+            <form class="formulario" method="post" action="cadastro.php" id="form">
                 <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
 
                 <div>
-                    <input type="text" name="login" id="login" placeholder="Login..." class="inputs required">
+                    <input type="text" name="login" id="login" placeholder="Login...">
                 </div>
 
                 <div>
-                    <input type="password" name="senha" id="senha" placeholder="Senha..." class="inputs required">
+                    <input type="password" name="senha" id="senha" placeholder="Senha...">
                 </div>
 
                 <button name="botao_enviar" value="1" class="botao_enviar" type="submit">Enviar</button>

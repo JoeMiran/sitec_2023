@@ -65,3 +65,15 @@ body {
 #area-cabecalho a:link, #area-cabecalho a:visited {
     padding: 8px 12px;
 }
+
+/*
+        ---- Formatação do formulário ----
+*/
+
+.formulario input{
+    outline: none;
+    padding: 12px;
+    background-color: var(--color-dark1);
+    border: solid 2px var(--color-dark1);
+    border-radius: 3px;
+}

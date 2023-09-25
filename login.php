@@ -30,7 +30,7 @@
             <!-- Login -->
             <main>
                 <h2>LOGIN</h2>
-                <form method="post" action="login.php">
+                <form class="formulario" method="post" action="login.php">
                     <input type="text" name="login" placeholder="Login" required>
                     <input type="password" name="senha" placeholder="Senha" required>
                     <div>
