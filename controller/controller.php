@@ -119,6 +119,22 @@ Class Controller {
         }
     }
     
+
+
+    public function editarPerfil() {
+        if (isset($_POST['botao_enviar'])) {
+            extract($_POST);
+            $usuario = new Usuario(idUsuario: $_SESSION['idUsuario'], 
+                                    senha: password_hash($senha, PASSWORD_DEFAULT));
+            $pessoa = new Pessoa(idUsuario: $_SESSION['idUsuario'], nome: $nome, email: $email, 
+                                fone: $fone, sexo: $sexo, nascimento: $nascimento, 
+                                estado: $estado, semestre: $semestre, descricao: $descricao);
+            if ((new UsuarioDAO)->atualizar($usuario) && (new PessoaDAO)->atualizar($pessoa)) {
+                LibUtil::redirecionar('consulta.php');
+            }
+        }
+    }
+    
     
     
     public function autenticarCredenciais() {

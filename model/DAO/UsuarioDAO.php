@@ -36,6 +36,19 @@ Class UsuarioDAO extends DAO{
         }
     }
     
+
+
+    public function atualizar($usuario) {
+        $conexao = $this->conectar();
+        $sql = "UPDATE usuario 
+                SET 
+                    senha = '".$usuario->senha."' 
+                WHERE idUsuario = '".$usuario->idUsuario."'";
+        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->close();
+        return $resultadoDaSolicitacao;
+    }
+    
     
     
     public function deletar($usuario) {

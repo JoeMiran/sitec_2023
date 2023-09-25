@@ -25,6 +25,7 @@
                     <a href="inicio.php">Início</a> 
                     <a href="consulta.php">Consulta</a>  
                     <a href="exclusao.php">Exclusão</a>
+                    <a href="edicao.php">Edição</a>
                     <a href="sair.php">Sair</a>  
                 </div>
            

@@ -51,6 +51,26 @@ Class PessoaDAO extends DAO{
 
 
 
+    public function atualizar($pessoa) {
+        $conexao = $this->conectar();
+        $sql = "UPDATE pessoa 
+                SET 
+                    nome = '".$pessoa->nome."',
+                    email = '".$pessoa->email."',
+                    fone = '".$pessoa->fone."',
+                    sexo = '".$pessoa->sexo."',
+                    nascimento = '".$pessoa->nascimento."',
+                    estado = '".$pessoa->estado."',
+                    semestre = '".$pessoa->semestre."',
+                    descricao = '".$pessoa->descricao."'
+                WHERE idUsuario = '".$pessoa->idUsuario."'";
+        $resultadoDaSolicitacao = $conexao->query($sql);
+        $conexao->close();
+        return $resultadoDaSolicitacao;
+    }
+
+
+
     public function deletar($pessoa) {
         $conexao = $this->conectar();
         $sql = "DELETE 

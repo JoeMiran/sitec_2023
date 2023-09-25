@@ -1,9 +1,9 @@
 <?php 
     include_once '../controller/Controller.php';
     $controller = new Controller();
-    $controller->restringirAcessoUsuario();
+    $controller->restringirAcessoVisitante();
     $controller->validarToken();
-    $controller->cadastrarPerfil();
+    $controller->editarPerfil();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="http://fonts.cdnfonts.com/css/straightler" rel="stylesheet">
-    <title>Cadastro</title>
+    <title>Edição</title>
 </head>
 
 <body>
@@ -24,14 +24,17 @@
             <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
         </div>      
         <div id="area-menu">
-            <a href="login.php">Início</a> 
-            <a href="cadastro.php">Cadastro</a> 
+            <a href="inicio.php">Início</a> 
+            <a href="consulta.php">Consulta</a>  
+            <a href="exclusao.php">Exclusão</a>
+            <a href="edicao.php">Edição</a>
+            <a href="sair.php">Sair</a>  
         </div>       
     </div>
 
     <div class="content">
-        <form method="post" action="cadastro.php" id="form">
-            <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
+        <form method="post" action="edicao.php" id="form">
+            <h2 class="text">FORMULÁRIO DE EDIÇÃO</h2>
             <?php $controller->gerarToken();?>
             
             <div>
@@ -78,11 +81,7 @@
             </div>
 
             <div>
-                <input type="text" name="login" id="login" placeholder="Login..." class="inputs required">
-            </div>
-
-            <div>
-                <input type="password" name="senha" id="senha" placeholder="Senha..." class="inputs required">
+                <input type="password" name="senha" id="senha" minlength="8" placeholder="Senha..." class="inputs required">
             </div>
 
             <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" maxlength="100" ="Informações Adicionais..."></textarea><br>

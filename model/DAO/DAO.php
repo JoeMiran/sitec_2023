@@ -9,6 +9,7 @@ abstract Class DAO{
 
     abstract protected function inserir($dto);
     abstract protected function selecionar($dto);
+    abstract protected function atualizar($dto);
     abstract protected function deletar($dto);
 
 
