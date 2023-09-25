@@ -16,7 +16,7 @@
             </div>      
             <div id="area-menu">
                 <a href="login.php">Início</a> 
-                <a href="cadastro.php">Cadastro</a> 
+                <a href="sair.php">Sair</a> 
             </div>       
         </div>
         <div class="container">
@@ -36,6 +36,5 @@
                 </h2>
             </main>
         </div>
-
     </body>
 </html>

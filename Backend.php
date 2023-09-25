@@ -14,10 +14,10 @@ function conectar() {
 
 
 function sairPerfil(){
-    LibUtil::comecarSessao();
+    session_start();
     $_SESSION = array();
-    LibUtil::atrasar(2);
-    LibUtil::redirecionar('login.php');
+    echo "<script>location.href='login.php';</script>";
+    exit();
 }
 
 
@@ -73,5 +73,15 @@ function autenticarCredenciais() {
             echo "<script>location.href='inicio.php';</script>";
             exit();
         }
+    }
+}
+
+
+
+function restringirAcessoUsuario() {
+    session_start();
+    if (isset($_SESSION['login'])) {
+        echo "<script>location.href='inicio.php';</script>";
+        exit();
     }
 }

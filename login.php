@@ -1,5 +1,6 @@
 <?php
     include_once 'Backend.php';
+    restringirAcessoUsuario();
     autenticarCredenciais();
 ?>
 
@@ -20,14 +21,12 @@
             </div>
         </div>
         <div>
-
             <!-- Apresentação -->
             <div>
                 <h2>Semana do ITEC 2023</h2>
                 <h4>Desenvolvimento Web Full Stack.</h4>
                 <img src="itec.png">
             </div>
-
             <!-- Login -->
             <main>
                 <h2>LOGIN</h2>
