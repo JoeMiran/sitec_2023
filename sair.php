@@ -1,18 +1,12 @@
 <?php 
-    include_once '../controller/Controller.php';
-    $controller = new Controller();
-    $controller->restringirAcessoVisitante();
+    include_once 'Backend.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
  <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-     <link rel="stylesheet" type="text/css" href="../css/style.css">
-     <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="style.css">
      <title>Sair</title>
  </head>
 
