@@ -4,3 +4,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d [OR]
 RewriteCond %{REQUEST_URI} ^/$
 RewriteRule ^(.*)$ /view/$1 [L,QSA]
+
+#https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html
