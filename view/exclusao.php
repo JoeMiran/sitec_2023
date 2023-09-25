@@ -2,6 +2,7 @@
     include_once '../controller/Controller.php';
     $controller = new Controller();
     $controller->restringirAcessoVisitante();
+    $controller->validarToken();
     $controller->excluirPerfil();
 ?>
 
@@ -20,7 +21,7 @@
 <body>
     <div class="area-cabecalho">
         <div id="area-logo">
-             <h1><span href="index.php" class="roxo">SITEC </span><span class="ano">2023</span></h1>
+             <h1><span href="login.php" class="roxo">SITEC </span><span class="ano">2023</span></h1>
         </div>
         <div id="area-menu">
             <a href="inicio.php">Início</a> 
@@ -39,7 +40,7 @@
     
             <div class="botoes_exclusao">
                 
-                <button name="botao_excluir" value="1" class="botao_excluir" type="submit">EXCLUIR</button>
+                <button name="botao_enviar" value="1" class="botao_excluir" type="submit">EXCLUIR</button>
                 
                 <a class="botao_cancelar" href="inicio.php">CANCELAR</a>
                 

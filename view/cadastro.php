@@ -2,6 +2,7 @@
     include_once '../controller/Controller.php';
     $controller = new Controller();
     $controller->restringirAcessoUsuario();
+    $controller->validarToken();
     $controller->cadastrarPerfil();
 ?>
 
@@ -23,7 +24,7 @@
             <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
         </div>      
         <div id="area-menu">
-            <a href="index.php">Início</a> 
+            <a href="login.php">Início</a> 
             <a href="cadastro.php">Cadastro</a> 
         </div>       
     </div>

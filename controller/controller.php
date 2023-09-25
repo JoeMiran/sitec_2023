@@ -13,7 +13,7 @@ Class Controller {
 
     public function atrasarRedirecionarIndex() {
         LibUtil::atrasar(2);
-        LibUtil::redirecionar('index.php');
+        LibUtil::redirecionar('login.php');
     }
 
 
@@ -36,7 +36,17 @@ Class Controller {
     public function restringirAcessoVisitante() {
         LibUtil::comecarSessao();
         if (! isset($_SESSION['idUsuario'])) 
-            LibUtil::redirecionar('index.php');
+            LibUtil::redirecionar('login.php');
+    }
+
+
+
+    public function restringirAcessoTransicao() {
+        LibUtil::comecarSessao();
+        if (! isset($_SESSION['Transicao'])) 
+            LibUtil::redirecionar('login.php');
+        else
+            unset($_SESSION['Transicao']);
     }
     
     
@@ -49,13 +59,16 @@ Class Controller {
     
     
     
-    public function validarToken($token) {
-        LibUtil::comecarSessao();
-        return (! (isset($_SESSION['token']) && $_SESSION['token'] == $token));
-        header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
-            echo '<script>alert("405 Método não permitido.")</script>';
-            LibUtil::redirecionar('index.php');
+    public function validarToken() {
+        if (isset($_POST['botao_enviar'])) {
+            LibUtil::comecarSessao();
+            if (! (isset($_SESSION['token']) && $_SESSION['token'] == $_POST['token'])) {
+                header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
+                echo '<script>alert("405 Método não permitido.")</script>';
+                LibUtil::redirecionar('login.php');
+            }
         }
+    }
         
     
     
@@ -63,7 +76,7 @@ Class Controller {
         LibUtil::comecarSessao();
         $_SESSION = array();
         LibUtil::atrasar(2);
-        LibUtil::redirecionar('index.php');
+        LibUtil::redirecionar('login.php');
     }
     
     
@@ -77,12 +90,13 @@ Class Controller {
     
     
     public function excluirPerfil() {
-        if (isset($_POST['botao_excluir'])) {
+        if (isset($_POST['botao_enviar'])) {
             LibUtil::comecarSessao();
             $usuario = new Usuario(idUsuario: $_SESSION['idUsuario']);
             $pessoa = new Pessoa(idUsuario: $_SESSION['idUsuario']);
             if ((new UsuarioDAO())->deletar($usuario) && 
                 (new PessoaDAO())->deletar($pessoa))
+                $_SESSION['Transicao'] = true;
                 LibUtil::redirecionar('exclusaoSucesso.php');
         }
     }
@@ -97,15 +111,18 @@ Class Controller {
             $pessoa = new Pessoa(idUsuario: $idUsuario, nome: $nome, email: $email, 
                                 fone: $fone, sexo: $sexo, nascimento: $nascimento, 
                                 estado: $estado, semestre: $semestre, descricao: $descricao);
-            if ((new PessoaDAO)->inserir($pessoa)) 
+            if ((new PessoaDAO)->inserir($pessoa)) {
+                LibUtil::comecarSessao();
+                $_SESSION['Transicao'] = true;
                 LibUtil::redirecionar('cadastroSucesso.php');
+            }
         }
     }
     
     
     
     public function autenticarCredenciais() {
-        if (isset($_POST['botao_entrar'])) {
+        if (isset($_POST['botao_enviar'])) {
             extract($_POST);
             $usuario = new Usuario(login: $login);
             $vetorDadosUsuario = (new UsuarioDAO)->selecionar($usuario);
@@ -113,6 +130,7 @@ Class Controller {
                 if (password_verify($senha, $vetorDadosUsuario['senha'])) {
                     LibUtil::comecarSessao();
                     $_SESSION['idUsuario'] = $vetorDadosUsuario['idUsuario'];
+                    $_SESSION['Transicao'] = true;
                     LibUtil::redirecionar('loginSucesso.php');
                 }
             }

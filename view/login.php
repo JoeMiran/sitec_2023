@@ -2,6 +2,7 @@
     include_once '../controller/Controller.php';
     $controller = new Controller();
     $controller->restringirAcessoUsuario();
+    $controller->validarToken();
     $controller->autenticarCredenciais();
 ?>
 
@@ -23,7 +24,7 @@
                 </div>
                 
                 <div id="area-menu">
-                    <a href="index.php">Início</a> 
+                    <a href="login.php">Início</a> 
                     <a href="cadastro.php">Cadastro</a> 
                 </div>
            
@@ -47,7 +48,7 @@
             <!-- Login -->
             <main class="area_login">
                 <h2>LOGIN</h2>
-                <form class="formulario" method="post" action="index.php">
+                <form class="formulario" method="post" action="login.php">
                     <?php $controller->gerarToken();?>
 
                     <input type="text" name="login" placeholder="Login" class="inputs" required>
@@ -56,7 +57,7 @@
                     
                     <div class="botoes">
                         
-                        <button name="botao_entrar" value="1" class="botao_entrar" type="submit" onclick="validarEntrada(event)">Entrar</button>
+                        <button name="botao_enviar" value="1" class="botao_entrar" type="submit" onclick="validarEntrada(event)">Entrar</button>
                         
                         <a class="botao_cadastrar" href="cadastro.php">Cadastrar</a>
                         

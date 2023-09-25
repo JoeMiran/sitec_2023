@@ -1,3 +1,9 @@
+<?php 
+    include_once '../controller/Controller.php';
+    $controller = new Controller();
+    $controller->restringirAcessoVisitante();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,7 +19,7 @@
  <body>
      <div class="area-cabecalho">
          <div id="area-logo">
-             <h1><span href="index.php" class="roxo">SITEC </span><span class="ano">2023</span></h1>
+             <h1><span href="login.php" class="roxo">SITEC </span><span class="ano">2023</span></h1>
          </div>
      </div>
 
@@ -26,5 +32,4 @@
 </html>
 
 <?php 
-    include_once '../controller/Controller.php';
-    (new Controller())->sairPerfil();
+    $controller->sairPerfil();
