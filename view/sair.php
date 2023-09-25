@@ -5,9 +5,9 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-     <link rel="stylesheet" type="text/css" href="./css/style.css">
+     <link rel="stylesheet" type="text/css" href="../css/style.css">
      <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
-     <title>Exclusão bem-sucedida</title>
+     <title>Sair</title>
  </head>
 
  <body>
@@ -18,7 +18,7 @@
      </div>
 
      <div class="sucesso">
-        <h2>EXCLUSÃO REALIZADA COM SUCESSO!</h2> 
+        <h2>Você saiu do seu perfil.</h2> 
         <h3>Você está sendo redirecionado para a página inicial.</h3> 
      </div>  
  </body>
@@ -26,9 +26,9 @@
 </html>
 
 <?php 
-    include_once 'backend.php';
-    Backend::comecarSessao();
+    include_once '../controller/controller.php';
+    comecarSessao();
     $_SESSION = array();
-    Backend::atraso(2);
-    Backend::redirecionar('index.php');
+    atraso(2);
+    redirecionar('index.php');
 ?>

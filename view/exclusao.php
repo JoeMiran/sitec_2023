@@ -1,7 +1,7 @@
 <?php 
-    include_once 'backend.php';
-    Backend::restringirAcessoVisitante();
-    Backend::excluirDados();
+    include_once '../controller/controller.php';
+    restringirAcessoVisitante();
+    excluirPerfil();
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
     <title>Exclusão</title>
 </head>
@@ -34,7 +34,7 @@
         <h3>Todos os seus dados serão apagados permanentemente.</h3> 
 
         <form class="formulario" method="post" action="exclusao.php">
-            <?php Backend::gerarToken();?>
+            <?php gerarToken();?>
     
             <div class="botoes_exclusao">
                 

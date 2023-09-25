@@ -1,7 +1,7 @@
 <?php 
-    include_once 'backend.php';
-    Backend::restringirAcessoUsuario();
-    Backend::cadastrarDados();
+    include_once '../controller/controller.php';
+    restringirAcessoUsuario();
+    cadastrarPerfil();
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="http://fonts.cdnfonts.com/css/straightler" rel="stylesheet">
     <title>Cadastro</title>
 </head>
@@ -30,7 +30,7 @@
     <div class="content">
         <form method="post" action="cadastro.php" id="form">
             <h2 class="text">FORMULÁRIO DE CADASTRO</h2>
-            <?php Backend::gerarToken();?>
+            <?php gerarToken();?>
             
             <div>
                 <input type="text" name="nome" placeholder="Nome..." class="inputs required">

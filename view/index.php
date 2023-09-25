@@ -1,7 +1,7 @@
 <?php
-    include_once 'backend.php';
-    Backend::restringirAcessoUsuario();
-    Backend::autenticarUsuario();
+    include_once '../controller/controller.php';
+    restringirAcessoUsuario();
+    autenticarCredenciais();
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
-        <script type="text/javascript" src="validacao.js"></script>
+        <script type="text/javascript" src="../script/validacao.js"></script>
         <title>Início</title>
     </head>
     <body>
@@ -34,7 +34,7 @@
             <div class="area_principal">
                 <h2>Semana do ITEC 2023</h2>
                 <h4>Desenvolvimento Web Full Stack.</h4>
-                <img src="img/itec.png">
+                <img src="../img/itec.png">
                 <p>
                     Esse minicurso tem por finalidade apresentar os conceitos básicos de desenvolvimento web full stack,
                     utilizando as tecnologias HTML, CSS, JavaScript, PHP e MySQL. Nosso objetivo é que ao final do minicurso,
@@ -47,7 +47,7 @@
             <main class="area_login">
                 <h2>LOGIN</h2>
                 <form class="formulario" method="post" action="index.php">
-                    <?php Backend::gerarToken();?>
+                    <?php gerarToken();?>
 
                     <input type="text" name="login" placeholder="Login" class="inputs" required>
 

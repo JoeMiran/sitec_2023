@@ -1,7 +1,7 @@
 <?php
-    include_once 'backend.php';
-    Backend::restringirAcessoVisitante();
-    $dados = Backend::consultarDados();
+    include_once '../controller/controller.php';
+    restringirAcessoVisitante();
+    $perfil = consultarPerfil();
 ?>
 
  <!DOCTYPE html>
@@ -11,7 +11,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-     <link rel="stylesheet" type="text/css" href="./css/style.css">
+     <link rel="stylesheet" type="text/css" href="../css/style.css">
      <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
      <title>Consulta</title>
  </head>
@@ -38,35 +38,35 @@
             </legend>
             <p>
                 <strong>Nome:</strong>
-                <?php echo($dados['nome'])?>
+                <?php echo($perfil['nome'])?>
             </p><br>
             <p>
                 <strong>Email:</strong>
-                <?php echo($dados['email'])?>
+                <?php echo($perfil['email'])?>
             </p><br>
             <p>
                 <strong>Telefone:</strong>
-                <?php echo($dados['fone'])?>
+                <?php echo($perfil['fone'])?>
             </p><br>
             <p>
                 <strong>Sexo: </strong>
-                <?php echo($dados['sexo'])?>
+                <?php echo($perfil['sexo'])?>
             </p><br>
             <p>
                 <strong>Nascimento: </strong>
-                <?php echo($dados['nascimento'])?>
+                <?php echo($perfil['nascimento'])?>
             </p><br>
             <p>
                 <strong>Estado: </strong>
-                <?php echo($dados['estado'])?>
+                <?php echo($perfil['estado'])?>
             </p><br>
             <p>
                 <strong>Semestre:</strong>
-                <?php echo($dados['semestre'])?>
+                <?php echo($perfil['semestre'])?>
             </p><br>
             <p>
                 <strong>Informações Adicionais: </strong>
-                <?php echo($dados['descricao'])?>
+                <?php echo($perfil['descricao'])?>
             </p><br>
          </fieldset>
 
