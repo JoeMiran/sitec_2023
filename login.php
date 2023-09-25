@@ -31,17 +31,11 @@
             <main>
                 <h2>LOGIN</h2>
                 <form method="post" action="login.php">
-
                     <input type="text" name="login" placeholder="Login" required>
-
                     <input type="password" name="senha" placeholder="Senha" required>
-                    
                     <div>
-                        
                         <button name="botao_enviar" value="1" type="submit">Entrar</button>
-                        
                         <a href="cadastro.php">Cadastrar</a>
-                        
                     </div>
                 </form>
             </main>
