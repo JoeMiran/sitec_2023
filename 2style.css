@@ -1,0 +1,79 @@
+@import url('http://fonts.cdnfonts.com/css/low-gun-screen-expanded');
+:root {
+    --color-white:#fff;
+    --color-red: #e63636;
+    --color-dark1: #181818;
+    --color-dark2: #1e1e1e;
+    --color-dark3: #646363;
+    --color-blue1: #2E9AFE;
+    --color-blue2: #2D629E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-dark1);
+    height: 100vh;
+    animation: fadeIn 0.5s linear;
+}
+
+/*
+        ---- Formatação do cabeçalho ----
+*/
+
+.area-cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    font-size: 2em;
+    font-family: 'Low Gun Screen', sans-serif;
+    background-color: var(--color-blue2);
+    padding: 32px;
+    gap: 16px;
+}
+
+#area-logo:hover{
+    transform: scale(1.2);
+    transition: all 1s;
+}
+
+/*
+        ---- Formatação de links ----
+*/
+
+#area-menu a{
+    border-radius: 8px;
+    padding:  8px;
+}
+
+
+#area-menu a:hover {
+    color: var(--color-dark1);
+    border-radius: 8px;
+    padding: 8px;
+    background-color: var(--color-blue1);
+    transition: all 1s;
+}
+
+#area-cabecalho a:link, #area-cabecalho a:visited {
+    padding: 8px 12px;
+}
+
+/*
+        ---- Formatação do formulário ----
+*/
+
+.formulario input{
+    outline: none;
+    padding: 12px;
+    background-color: var(--color-dark1);
+    border: solid 2px var(--color-dark1);
+    border-radius: 3px;
+}
