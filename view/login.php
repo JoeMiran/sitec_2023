@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
+    <script type="text/javascript" src="../script/validacao.js"></script>
     <title>Início</title>
 </head>
 
@@ -42,7 +43,7 @@
                 <input type="password" name="senha" placeholder="Senha" class="inputs" required> <!--  Campo de entrada de texto para a senha. -->
                 <span class="erro_login"></span> <!--Espaço reservado para exibir mensagens de erro.-->
                 <div class="botoes">
-                    <button class="botao_enviar" name="botao_enviar" value="1" type="submit" onclick="">Entrar</button>
+                    <button class="botao_enviar" name="botao_enviar" value="1" type="submit" onclick="validarEntrada(event)">Entrar</button>
                     <a href="cadastro.php" class="botao_cadastrar">Cadastrar</a>
                 </div>
             </form>
