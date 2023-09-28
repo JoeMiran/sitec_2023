@@ -48,6 +48,7 @@
             <!-- Login -->
             <main class="area_login">
                 <h2>LOGIN</h2>
+                <h3>Aluno SITEC</h3>
                 <form class="formulario" method="post" action="login.php">
                     <?php $controller->gerarToken();?>
 

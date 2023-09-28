@@ -121,6 +121,7 @@ body {
     color: var(--color-white);
     cursor: pointer;
     transition: all .8s;
+    margin-top: 20px;
 }
 
 .botoes .botao_entrar:hover,
@@ -131,12 +132,13 @@ body {
 .botao_cadastrar {
     padding: 16px;
     font-size: 16px;
-    border-radius: 0.35px;
+    border-radius: 5px;
     background-color: var(--color-dark2);
     color: var(--color-blue2);
     border: 0.183px solid var(--color-blue2);
     cursor: pointer;
     transition: all .8s;
+    margin-top: 20px;
 }
 
 .botoes .botao_cadastrar:hover {
@@ -276,6 +278,12 @@ body {
 .content h2 {
     font-weight: bold;
     padding: 15px;
+}
+
+.area_login h2 {
+    font-weight: bold;
+    padding: 15px;
+    margin-top: 20px;
 }
 
 .sucesso {
