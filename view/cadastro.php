@@ -1,6 +1,6 @@
 <?php 
-    include_once 'Backend.php';
-    cadastrarPerfil();
+    include_once '../controller/Controller.php';
+    (new Controller)->cadastrarPerfil();
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="http://fonts.cdnfonts.com/css/low-gun-screen-expanded" rel="stylesheet">
     <title>Cadastro</title>
 </head>
@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div>
-            <a href="index.php">Início</a>
+            <a href="login.php">Início</a>
             <a href="cadastro.php">Cadastro</a>
         </div>
         <div>
