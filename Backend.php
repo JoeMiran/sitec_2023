@@ -3,8 +3,8 @@
 
 
 function conectar() {
-    $conexao = new mysqli(hostname: 'localhost', username: 'root', 
-                        password: '', database: 'sitec_2023');
+    $conexao = new mysqli('localhost', 'root', '', 'sitec_2023');
+
     if ($conexao->connect_error)
         exit("Falha na conexão: ".$conexao->connect_error);
     else
