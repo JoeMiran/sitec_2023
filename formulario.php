@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href="http://fonts.cdnfonts.com/css/straightler" rel="stylesheet">
-    <title>Formulário</title>
+    <title>FormulÃ¡rio</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <h1><span class="roxo">SITEC </span><span class="ano">2023</span></h1>
         </div>      
         <div id="area-menu">
-            <a href="index.php">Início</a> 
+            <a href="index.php">Iní­cio</a> 
             <a href="formulario.php">Formulário</a> 
             <a href="consulta.php">Consulta</a>  
         </div>
@@ -47,9 +47,9 @@
                 <input type='date' id='dtnasc' name='dtnasc' class="inputs required">
             </div>
             <div class="inputs required">
-                <label class="inputs required" for="estado">Estado:</label>
-                <select id="estado" name="estado" class="inputs required">
-                    <option value="SP">PA</option>
+                <label class="inputs" name = "estado" class="inputs required">
+                Estado:</label>
+                <select id="estado" name="UF">
                     <option value="RJ">AM</option>
                     <option value="PB">AL</option>
                     <option value="PB">AC</option>
@@ -68,7 +68,7 @@
             <div>
                 <input type="password" name="senha" id="senha" placeholder="Senha..." class="inputs required">
             </div>
-            <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Informações Adicionais..."></textarea><br>
+            <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="InformaÃ§Ãµes Adicionais..."></textarea><br>
             <button class="botao_enviar" type="submit">Enviar</button>
         </form>
     </div>
