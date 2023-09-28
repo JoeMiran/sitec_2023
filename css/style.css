@@ -1,0 +1,113 @@
+/* Importar a fonte 'low-gun-screen-expanded' de um CDN */
+@import url('http://fonts.cdnfonts.com/css/low-gun-screen-expanded');
+
+/* Definir variáveis de cores usando o :root pseudo-elemento */
+:root {
+    --color-white: #fff;        /* Branco */
+    --color-red: #e63636;      /* Vermelho */
+    --color-dark1: #181818;    /* Cinza escuro 1 */
+    --color-dark2: #1e1e1e;    /* Cinza escuro 2 */
+    --color-dark3: #646363;    /* Cinza escuro 3 */
+    --color-blue1: #2E9AFE;    /* Azul claro */
+    --color-blue2: #2D629E;    /* Azul escuro */
+}
+
+/* Definir estilos padrão para todos os elementos HTML */
+* {
+    margin: 0px;                /* Remover margens padrão */
+    text-decoration: none;     /* Remover decoração de texto */
+    color: var(--color-white); /* Definir cor de texto para branco */
+}
+
+/* Estilos para o corpo (body) da página */
+body {
+    max-height: 100vh;         /* Altura máxima igual à altura da janela de visualização */
+    background: var(--color-dark1); /* Cor de fundo cinza escuro 1 */
+    font-family: Arial, Helvetica, sans-serif; /* Família de fontes padrão */
+}
+
+/* Estilos para a classe 'container' */
+.container {
+    display: flex;             /* Usar flexbox */
+    flex-direction: row;       /* Direção das caixas flexíveis é horizontal */
+    justify-content: center;   /* Centralizar o conteúdo horizontalmente */
+    margin-top: 175px;         /* Margem superior de 175 pixels */
+}
+
+/* Estilos para a classe 'area_principal' */
+.area_principal {
+    width: 20%;                /* Largura de 20% do elemento pai */
+    border-top-left-radius: 12px;     /* Raio de canto superior esquerdo */
+    border-bottom-left-radius: 12px;  /* Raio de canto inferior esquerdo */
+    margin-top: 10px;          /* Margem superior de 10 pixels */
+    margin-bottom: 15px;       /* Margem inferior de 15 pixels */
+    padding: 15px;             /* Espaçamento interno de 15 pixels */
+    background-color: var(--color-blue2); /* Cor de fundo azul escuro */
+    text-align: justify;       /* Justificar o texto */
+}
+
+/* Estilos para imagens dentro da classe 'area_principal' */
+.area_principal img {
+    max-width: 176px;          /* Largura máxima de 176 pixels */
+    display: block;            /* Tornar a imagem um bloco */
+    margin: auto;              /* Centralizar a imagem horizontalmente */
+}
+
+/* Estilos para a classe 'area_login' */
+.area_login {
+    display: flex;             /* Usar flexbox */
+    flex-direction: column;    /* Direção das caixas flexíveis é vertical */
+    text-align: center;        /* Centralizar o texto horizontalmente */
+    width: 20%;                /* Largura de 20% do elemento pai */
+    border-top-right-radius: 12px;    /* Raio de canto superior direito */
+    border-bottom-right-radius: 12px; /* Raio de canto inferior direito */
+    margin: 10px 0px 15px 0px; /* Margem superior, direita, inferior e esquerda */
+    padding: 15px;             /* Espaçamento interno de 15 pixels */
+    background-color: var(--color-dark2); /* Cor de fundo cinza escuro 2 */
+}
+
+/* Estilos para a classe 'formulario' dentro de 'area_login' */
+.formulario {
+    display: flex;             /* Usar flexbox */
+    flex-direction: column;    /* Direção das caixas flexíveis é vertical */
+    justify-content: center;   /* Centralizar o conteúdo verticalmente */
+    margin: 90px 48px 0px 48px; /* Margem superior, direita, inferior e esquerda */
+    gap: 8px;                  /* Espaçamento entre elementos de 8 pixels */
+}
+
+/* Estilos para elementos <input> dentro de 'formulario' */
+.formulario input {
+    outline: none;             /* Remover contorno ao focar */
+    padding: 12px;             /* Espaçamento interno de 12 pixels */
+    background-color: var(--color-dark1); /* Cor de fundo cinza escuro 1 */
+    border: solid 2px var(--color-dark1);  /* Borda sólida de 2 pixels */
+    border-radius: 3px;        /* Raio das bordas de 3 pixels */
+}
+
+/* Estilos para os botões */
+.botoes {
+    display: flex;               /* Usar o modelo de layout flex */
+    justify-content: space-around; /* Distribuir espaço uniformemente ao redor dos elementos filhos */
+}
+
+/* Estilos para os botões com classes 'botao_entrar' e 'botao_cadastrar' */
+.botao_entrar, .botao_cadastrar {
+    padding: 16px;               /* Espaçamento interno de 16 pixels em todas as direções */
+    font-size: 16px;             /* Tamanho da fonte de 16 pixels */
+    border-radius: 5px;          /* Raio das bordas de 5 pixels para arredondamento */
+    cursor: pointer;             /* Mudar o cursor para um ponteiro ao passar por cima */
+}
+
+/* Estilos específicos para o botão com a classe 'botao_entrar' */
+.botao_entrar {
+    background-color: var(--color-blue2); /* Cor de fundo azul escuro a partir de variável personalizada */
+    color: var(--color-white);            /* Cor do texto branca a partir de variável personalizada */
+    border: none;                         /* Remover a borda do botão */
+}
+
+/* Estilos específicos para o botão com a classe 'botao_cadastrar' */
+.botao_cadastrar {
+    background-color: var(--color-dark2); /* Cor de fundo cinza escuro 2 a partir de variável personalizada */
+    color: var(--color-blue2);            /* Cor do texto azul escuro a partir de variável personalizada */
+    border: 0.183px solid var(--color-blue2); /* Borda sólida com espessura de 0.183 pixels em cor personalizada */
+}
