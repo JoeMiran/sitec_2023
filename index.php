@@ -34,8 +34,8 @@
                 <span class="erro_login"></span> <!--Espaço reservado para exibir mensagens de erro.-->
             </form>
             <div class="botoes">
-                <button class="botao_entrar" type="submit" onclick="consultarConta(event)">Entrar</button>
-                <button class="botao_cadastrar" type="submit" onclick="cadastrarConta(event)">Cadastrar</button>
+                <button class="botao_entrar" type="submit">Entrar</button>
+                <button class="botao_cadastrar" type="submit">Cadastrar</button>
             </div>
         </div>
     </div>
