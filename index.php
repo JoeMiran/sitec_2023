@@ -1,6 +1,5 @@
 <?php
     include_once 'Backend.php';
-    restringirAcessoUsuario();
     autenticarCredenciais();
 ?>
 
@@ -11,14 +10,9 @@
         <title>Início</title>
     </head>
     <body>
-        <div class="area-cabecalho">
-            <div class="area-logo">
-                <h1>SITEC 2023</h1>
-            </div>
-            <div id="area-menu">
-                <a href="login.php">Início</a> 
-                <a href="cadastro.php">Cadastro</a> 
-            </div>
+        <div> 
+            <a href="index.php">Início</a> 
+            <a href="cadastro.php">Cadastro</a> 
         </div>
         <div>
             <!-- Apresentação -->
@@ -30,7 +24,7 @@
             <!-- Login -->
             <main>
                 <h2>LOGIN</h2>
-                <form class="formulario" method="post" action="login.php">
+                <form class="formulario" method="post" action="index.php">
                     <input type="text" name="login" placeholder="Login" required>
                     <input type="password" name="senha" placeholder="Senha" required>
                     <div>

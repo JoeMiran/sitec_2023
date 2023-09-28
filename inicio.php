@@ -10,14 +10,9 @@
         <title>Inicio</title>
     </head>
     <body>
-        <div class="area-cabecalho">
-            <div class="area-logo">
-                <h1>SITEC 2023</h1>
-            </div>      
-            <div id="area-menu">
-                <a href="login.php">Início</a> 
-                <a href="sair.php">Sair</a> 
-            </div>       
+        <div> 
+            <a href="inicio.php">Início</a> 
+            <a href="sair.php">Sair</a> 
         </div>
         <div class="container">
 

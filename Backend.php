@@ -16,7 +16,7 @@ function conectar() {
 function sairPerfil(){
     session_start();
     $_SESSION = array();
-    echo "<script>location.href='login.php';</script>";
+    echo "<script>location.href='index.php';</script>";
     exit();
 }
 
@@ -50,7 +50,7 @@ function cadastrarPerfil() {
         )";
         $conexao->query($sql);
         $conexao->close();
-        echo "<script>location.href='login.php';</script>";
+        echo "<script>location.href='index.php';</script>";
         exit();
     }
 }
@@ -73,15 +73,5 @@ function autenticarCredenciais() {
             echo "<script>location.href='inicio.php';</script>";
             exit();
         }
-    }
-}
-
-
-
-function restringirAcessoUsuario() {
-    session_start();
-    if (isset($_SESSION['login'])) {
-        echo "<script>location.href='inicio.php';</script>";
-        exit();
     }
 }

@@ -10,14 +10,9 @@
         <title>Cadastro</title>
     </head>
     <body>
-        <div class="area-cabecalho">
-            <div class="area-logo">
-                <h1>SITEC 2023</h1>
-            </div>      
-            <div id="area-menu">
-                <a href="login.php">Início</a> 
-                <a href="cadastro.php">Cadastro</a> 
-            </div>       
+        <div> 
+            <a href="index.php">Início</a> 
+            <a href="cadastro.php">Cadastro</a> 
         </div>
         <div>
             <form class="formulario" method="post" action="cadastro.php" id="form">
