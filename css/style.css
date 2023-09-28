@@ -91,7 +91,7 @@ body {
 }
 
 /* Estilos para os botões com classes 'botao_entrar' e 'botao_cadastrar' */
-.botao_entrar, .botao_cadastrar {
+.botao_enviar, .botao_cadastrar {
     padding: 16px;               /* Espaçamento interno de 16 pixels em todas as direções */
     font-size: 16px;             /* Tamanho da fonte de 16 pixels */
     border-radius: 5px;          /* Raio das bordas de 5 pixels para arredondamento */
@@ -99,7 +99,7 @@ body {
 }
 
 /* Estilos específicos para o botão com a classe 'botao_entrar' */
-.botao_entrar {
+.botao_enviar {
     background-color: var(--color-blue2); /* Cor de fundo azul escuro a partir de variável personalizada */
     color: var(--color-white);            /* Cor do texto branca a partir de variável personalizada */
     border: none;                         /* Remover a borda do botão */
